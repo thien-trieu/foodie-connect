@@ -1,21 +1,14 @@
-// Database connections
-const { Pool } = require('pg');
+// Database setup
+const { Client } = require('pg');
 
-const {PGHOST, PGUSER, PGPASSWORD, PGDATABASE, PGPORT} = process.env;
+const dbConfig = {
+  user: process.env.PGUSER,
+  host: process.env.PGHOST,
+  database: process.env.PGDATABASE,
+  password: process.env.PGPASSWORD,
+  port: process.env.PGPORT
+};
 
-console.log(PGUSER)
-const pool = new Pool({
-	user: PGUSER,
-	host: PGHOST,
-	password: PGPASSWORD,
-	port: PGPORT,
-	database: PGDATABASE,
-})
+const db = new Client(dbConfig);
 
-pool.connect().then(() => {
-	console.log("Database connection established.")
-}).catch( e => {
-	throw new Error(e);
-})
-
-module.exports = pool;
+module.exports = { db };
