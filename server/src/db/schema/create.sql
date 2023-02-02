@@ -5,7 +5,7 @@ CREATE TABLE users (
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  profile_picture VARCHAR(255) DEFAULT '../docs',
+  profile_picture VARCHAR(255) DEFAULT 'https://github.com/thien-trieu/foodie-connect/blob/master/server/docs/default_avatar.png?raw=true',
   description VARCHAR(100),
   location VARCHAR(255),
   created_at timestamp default current_timestamp
