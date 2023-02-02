@@ -18,13 +18,13 @@ CREATE TABLE users (
 
 CREATE TABLE choices (
   id SERIAL PRIMARY KEY,
-  choice VARCHAR(255) NOT NULL
+  name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE user_choices (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  choice INTEGER REFERENCES choices(id) ON DELETE CASCADE,
+  choice_id INTEGER REFERENCES choices(id) ON DELETE CASCADE,
   created_at timestamp default current_timestamp
 );
 `;
