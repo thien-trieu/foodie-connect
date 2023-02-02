@@ -24,9 +24,7 @@ CREATE TABLE choices (
 CREATE TABLE user_choices (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  choice1 INTEGER REFERENCES choices(id) ON DELETE CASCADE,
-  choice2 INTEGER REFERENCES choices(id) ON DELETE CASCADE,
-  choice3 INTEGER REFERENCES choices(id) ON DELETE CASCADE,
+  choice INTEGER REFERENCES choices(id) ON DELETE CASCADE,
   created_at timestamp default current_timestamp
 );
 `;
