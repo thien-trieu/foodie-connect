@@ -16,7 +16,7 @@ const port = process.env.PORT || 3001;
 // Main Route
 app.get("/", (req, res) => {
   res.send(
-    ""
+    "Foodie connect"
   );
 });
 

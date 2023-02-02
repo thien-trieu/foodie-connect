@@ -1,10 +1,44 @@
-INSERT INTO users (name, email, password, profile_picture, banner_picture, description, location, created_at) 
+-- 10 users
+
+INSERT INTO users (name, email, password, location, avatar, bio, created_at) 
 VALUES 
-('Aldwin Bautista', 'Aldiwn@email.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.','https://i.imgur.com/x4QTnId.png','https://i.imgur.com/KLeKnbC.png','I have this great idea for a tamogatchi web game...hit me up to learn more', 'Vancouver, BC, Canada', '2022-11-25'),
-('Jakob Bollman', 'Jakob@email.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.','https://i.imgur.com/IdBa73z.png','https://i.imgur.com/JM2diqi.png','I love skiing and people with amazing smile like me. Hit me up if you have a radiant smile', 'Vancouver, BC, Canada', '2022-11-25'),
-('Jaxson Berg', 'Jaxson@email.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.','https://i.imgur.com/FfQDBxQ.png','https://i.imgur.com/eDC9oou.png','I love coding and secretly a spy in a discord group. I also have majestic hair silky af. ', 'Calgary, AB, Canada', '2022-11-25'),
-('Kasey Valdez', 'Kasey@email.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.','https://i.imgur.com/AiRIIMy.png','https://i.imgur.com/Nx071kr.png','I love using profile pic not of myself and big chungus. Hit me up if you are into making meme gifs', 'Vancouver, BC, Canada', '2022-11-25'),
-('Emily Vilett', 'Emily@email.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.','https://i.imgur.com/DpCsdIf.png','https://i.imgur.com/PhuxwKO.png','Mercy main in dire need of friends to play Overwatch2. As you can see, my only friends are plushies.', 'Vancouver, BC, Canada', '2022-11-25'),
-('Taylor Smith', 'Taylor@email.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.','https://i.imgur.com/hY9dVqi.png','https://i.imgur.com/n19IGSI.png','I love over-dressing for casual situations Please do not talk to me if you dont own a $1000+ suit.', 'Vancouver, BC, Canada', '2022-11-25'),
-('Ray Yu', 'Ray@email.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.','https://i.imgur.com/M4CgqzU.png','https://i.imgur.com/ix1iHuF.png','I run a discord server w/over 5000+ members Please dm me if you want to be part of the best cohort.', 'Vancouver, BC, Canada', '2022-11-25'),
-('Minha Kim', 'Minha@email.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.','https://i.imgur.com/N9Osurv.png','https://i.imgur.com/xJMFxqB.png','Shawl enthusiast and a strawberry consumer. Love meeting with people named Anouk and Kasey ', 'Vancouver, BC, Canada', '2022-11-25'), 
+('Carol C', 'carolc@mail.ca', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'Vancouver, BC, Canada', 'https://github.com/thien-trieu/foodie-connect/blob/master/server/docs/default_avatar.png?raw=true', 'just looking to satisfy my cravings', '2023-02-01'),
+
+('Stanley L', 'stanl@mail.ca', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'Vancouver, BC, Canada', 'https://github.com/thien-trieu/foodie-connect/blob/master/server/docs/default_avatar.png?raw=true', 'looking for a food buddy', '2023-02-01'),
+
+('Thien T', 'thient@mail.ca', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'Vancouver, BC, Canada', 'https://github.com/thien-trieu/foodie-connect/blob/master/server/docs/default_avatar.png?raw=true', 'good food is like a hug for your taste buds', '2023-02-01'),
+
+('Andy L', 'andya@mail.ca', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'Vancouver, BC, Canada', 'https://github.com/thien-trieu/foodie-connect/blob/master/server/docs/default_avatar.png?raw=true', 'what are you craving today?', '2023-02-01'),
+
+('Christian N', 'christiann@mail.ca', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'Vancouver, BC, Canada', 'https://github.com/thien-trieu/foodie-connect/blob/master/server/docs/default_avatar.png?raw=true', 'looking for good food and good music', '2023-02-01'),
+
+('Dominic T', 'dominicT@mail.ca', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'Vancouver, BC, Canada', 'https://github.com/thien-trieu/foodie-connect/blob/master/server/docs/default_avatar.png?raw=true', 'would you be my food-ami?', '2023-02-01'),
+
+('Francis B', 'francisb@mail.ca', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'Vancouver, BC, Canada', 'https://github.com/thien-trieu/foodie-connect/blob/master/server/docs/default_avatar.png?raw=true', 'i can cook if there is nothing out there that interests you', '2023-02-01'),
+
+('Gary J', 'garyj@mail.ca', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'Vancouver, BC, Canada', 'https://github.com/thien-trieu/foodie-connect/blob/master/server/docs/default_avatar.png?raw=true', 'i love food and of course my pet dog', '2023-02-01'),
+
+('Kyla W', 'kylaw@mail.ca', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'Vancouver, BC, Canada', 'https://github.com/thien-trieu/foodie-connect/blob/master/server/docs/default_avatar.png?raw=true', 'up for any food adventure!!', '2023-02-01'),
+
+('Vasiliy K', 'vasilyk@mail.ca', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'Vancouver, BC, Canada', 'https://github.com/thien-trieu/foodie-connect/blob/master/server/docs/default_avatar.png?raw=true', 'do you crave food first or does the though of food make you crave it?', '2023-02-01')
+
+
+-- 37 cuisine options
+INSERT INTO cuisines (cuisine) VALUES ('Breakfast & Brunch'),('Bakeries'),('Bars'),('Bubble Tea'),('Buffet'),('Burgers'),('Coffee'),('Chinese'),('Curry'),('Donuts'),('Fast Food'),('Filipino'),('Fish & Chips'),('Food Trucks'),('Fried Chicken'),('Greek'),('Hotpot'),('Indian'),('Japanese'),('Korean'),('Korean BBQ'),('Mexican'),('Noodles'),('Pasta'),('Pho'),('Pizza'),('Poke'),('Sandwiches'),('Seafood'),('Singaporean'),('Soup'),('Steak'),('Sushi'),('Turkish'),('Thai'),('Vietnamese')
+
+-- 10 user cuisines
+INSERT INTO user_cuisines (user_id, choice1, choice2, choice3, created_at) VALUES (1, 1, 4, 17,'2023-02-01'), 
+(2, 4, 16, 17,'2023-02-01'),
+(3, 4, 17, 29,'2023-02-01'),
+(4, 6, 7, 13,'2023-02-01'),
+(5, 4, 7, 36,'2023-02-01'),
+(6, 8, 15, 25,'2023-02-01'),
+(7, 4, 17, 19,'2023-02-01'),
+(8, 1, 8, 13,'2023-02-01'),
+(9, 1, 4, 17,'2023-02-01'),
+(10, 1, 8, 17,'2023-02-01');
+
+
+-- -- figuring out how to match
+-- INSERT INTO matches (user_id, match, created_at) VALUES (1, 2, TRUE, '2022-11-25');
+
