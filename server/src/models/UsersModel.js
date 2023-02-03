@@ -1,19 +1,27 @@
 const { db } = require('../db');
 
-// const create = (userId, name, color, emoji) => {
-//   return db
-//     .query(
-//       'INSERT INTO fruits (userId, name, color, emoji) VALUES ($1, $2, $3, $4) RETURNING *',
-//       [userId, name, color, emoji]
-//     )
-//     .then(data => data.rows[0])
-//     .catch(err => console.error(err.stack));
-// };
+const create = (name, email, password, location) => {
+  return db
+    .query(
+      'INSERT INTO users (name, email, password, location) VALUES ($1, $2, $3, $4) RETURNING *',
+      [name, email, password, location]
+    )
+    .then(data => data.rows[0])
+    .catch(err => console.error(err.stack));
+};
 
 const getAll = () => {
   return db
     .query('SELECT * FROM users')
     .then(data => data.rows)
+    .catch(err => console.error(err.stack));
+};
+
+
+const getByEmail = email => {
+  return db
+    .query('SELECT * FROM users WHERE email = $1', [email])
+    .then(data => data.rows[0])
     .catch(err => console.error(err.stack));
 };
 
@@ -41,4 +49,4 @@ const getAll = () => {
 //     .catch(err => console.error(err.stack));
 // };
 
-module.exports = { getAll };
+module.exports = { getAll, create, getByEmail };

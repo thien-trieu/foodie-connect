@@ -14,6 +14,11 @@ app.use(helmet()); // includes security headers (owasp)
 app.use(morgan('dev')); // middleware that logs all the requests
 app.use(express.json()); // allow requests to include json body
 
+app.use(cookieSession({
+  name: 'session',
+  keys: ['whatismysecretkeygoingtobe', 'imnotsurewhatitsgoingtobe']
+}));
+
 // ----------------------- ROUTES / ENDPOINTS
 app.use('/', routes);
 

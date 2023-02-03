@@ -1,24 +1,30 @@
 const express = require('express');
 
+const { create, getByEmail } = require('../models/UsersModel')
+
 const { UsersController } = require('../controllers');
 
 const router = express.Router();
 
 
-// CREATE - post
-// router.post('/', UsersController.create);
-
-// READ - get
-// Read All
 router.get('/', UsersController.getAll);
 
-// // Read One
-// router.get('/:id', UsersController.getById);
+router.post('/register', (req,res) => {
 
-// // UPDATE - put
-// router.put('/:id', UsersController.update);
+  const name = req.body.name
+  const email = req.body.email
+  const password = req.body.password
+  const location = req.body.location
 
-// // DELETE - delete
-// router.delete('/:id', UsersController.remove);
+
+  create(name, email, password, location)
+    .then(getByEmail(email))
+    .then(user =>{
+
+      console.log('Got the user?', user)
+      return res.send(user)
+    })
+
+})
 
 module.exports = router;
