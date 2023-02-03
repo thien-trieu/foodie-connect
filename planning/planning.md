@@ -11,16 +11,12 @@ User Stories
 - User can sign up and select their food interest (cuisines)
 - User will see resturants and other users with same food interest
 - User can send an alert when they are craving a cuisine 
-- Other users get a notification of same cuisine craving
 - Users with same craving is able to message each other
+
+
 - User can plan food meet up
 - User can save their Resturants
-
-EV Charging location finder
-- Gas prices, show how much your saving
-- EV locations
-- super charger?
-- plug types?
+- Other users get a notification of same cuisine craving
 
 # Team members
 - Thien Trieu
