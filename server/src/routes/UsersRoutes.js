@@ -4,7 +4,7 @@ const { UsersController } = require('../controllers');
 
 const router = express.Router();
 
-// CRUD REST API FRUITS ROUTES
+
 // CREATE - post
 // router.post('/', UsersController.create);
 

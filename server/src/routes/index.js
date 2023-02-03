@@ -10,8 +10,6 @@ const router = express.Router();
 // RENDERING ROUTES
 router.use('/', IndexRoutes);
 
-// AUTHENTICATION ROUTES
-// router.use('/api/auth', AuthRoutes);
 
 // CRUD REST API USER ROUTES
 router.use('/api/users', UserRoutes);
