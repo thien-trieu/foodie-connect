@@ -20,19 +20,40 @@ VALUES
 
 ('Vasiliy K', 'vasilyk@mail.ca', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'Vancouver, BC, Canada', 'https://github.com/thien-trieu/foodie-connect/blob/master/server/docs/default_avatar.png?raw=true', 'do you crave food first or does the though of food make you crave it?', '2023-02-01');
 
-INSERT INTO choices (choice) VALUES 
+INSERT INTO choices (name) VALUES 
 ('Breakfast & Brunch'), ('Bakeries'), ('Bars'), ('Bubble Tea'), ('Buffet'), ('Burgers'), ('Coffee'), ('Chinese'), ('Curry'), ('Donuts'), ('Fast Food'), ('Filipino'), ('Fish & Chips'), ('Food Trucks'), ('Fried Chicken'), ('Greek'), ('Hotpot'), ('Indian'), ('Japanese'), ('Korean'), ('Korean BBQ'), ('Mexican'), ('Noodles'), ('Pasta'), ('Pho'), ('Pizza'), ('Poke'), ('Sandwiches'), ('Seafood'), ('Singaporean'), ('Soup'), ('Steak'), ('Sushi'), ('Turkish'), ('Thai'), ('Vietnamese');
 
 
-INSERT INTO user_choices (user_id, choice1, choice2, choice3, created_at) VALUES ('1', '1', '4', '17','2023-02-01'), 
-('2', '4', '16', '17','2023-02-01'),
-('3', '4', '17', '29','2023-02-01'),
-('4', '6', '7', '13','2023-02-01'),
-('5', '4', '7', '36','2023-02-01'),
-('6', '8', '15', '25','2023-02-01'),
-('7', '4', '17', '19','2023-02-01'),
-('8', '1', '8', '13','2023-02-01'),
-('9', '1', '4', '17','2023-02-01'),
-('10', '1', '8', '17','2023-02-01');
+INSERT INTO user_choices (user_id, choice_id, created_at) VALUES 
+('1', '1', '2023-02-01'), 
+('1', '4', '2023-02-01'), 
+('1', '7', '2023-02-01'), 
+('2', '4', '2023-02-01'),
+('2', '17', '2023-02-01'),
+('2', '33', '2023-02-01'),
+('3', '1', '2023-02-01'),
+('3', '4', '2023-02-01'),
+('3', '17', '2023-02-01'),
+('4', '1', '2023-02-01'),
+('4', '26', '2023-02-01'),
+('4', '33', '2023-02-01'),
+('5', '4','2023-02-01'),
+('5', '15', '2023-02-01'),
+('5', '33', '2023-02-01'),
+('6', '1', '2023-02-01'),
+('6', '15', '2023-02-01'),
+('6', '17', '2023-02-01'),
+('7', '2', '2023-02-01'),
+('7', '17', '2023-02-01'),
+('7', '21', '2023-02-01'),
+('8', '1', '2023-02-01'),
+('8', '4', '2023-02-01'),
+('8', '33', '2023-02-01'),
+('9', '4', '2023-02-01'),
+('9', '19', '2023-02-01'),
+('9', '26', '2023-02-01'),
+('10', '7', '2023-02-01'),
+('10', '15', '2023-02-01'),
+('10', '26', '2023-02-01')
 `;
 
