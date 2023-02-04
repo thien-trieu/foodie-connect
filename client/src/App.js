@@ -1,5 +1,6 @@
 import './App.css';
-import Forms from './components/Form';
+import Register from './components/Register';
+import Login from './components/Login';
 import Landing from './components/Landing';
 import { useState } from 'react';
 // import { useCookies } from 'react-cookie';
@@ -9,28 +10,29 @@ import 'semantic-ui-css/semantic.min.css'
 
 function App() {
   const [user, setUser] = useState(Cookies.get('user'))
+  const [currentForm, setCurrentForm] = useState('login');
+
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  }
 
   console.log(user)
 
   if (user) {
-
     return (
       <div className="App">
           <Landing user={user} setUser={setUser}/>
       </div>
     );
-
-      // return the landing page
-      // setUser(user)
   } else {
-    // return the Form
     return (
       <div className="App">
-          <Forms user={user} setUser={setUser}/>
+        {
+        currentForm === "login" ? <Login onFormSwitch={toggleForm} user={user} setUser={setUser} /> : <Register onFormSwitch={toggleForm} user={user} setUser={setUser}/>
+        }
       </div>
     );
   }
-
 }
 
 export default App;

@@ -1,6 +1,6 @@
 const { db } = require('../db');
 
-const create = (name, email, password, location) => {
+const createUser = (name, email, password, location) => {
   return db
     .query(
       'INSERT INTO users (name, email, password, location) VALUES ($1, $2, $3, $4) RETURNING *',
@@ -49,4 +49,4 @@ const getByEmail = email => {
 //     .catch(err => console.error(err.stack));
 // };
 
-module.exports = { getAll, create, getByEmail };
+module.exports = { getAll, createUser, getByEmail };
