@@ -2,15 +2,17 @@ import React from 'react';
 import { Avatar, useChatContext } from 'stream-chat-react';
 
 function TeamChannelPreview({ channel, type }) {
+  //get channel and client from stream
   const { channel: activeChannel, client } = useChatContext();
 
-  // multiple users channel
+  // get multiple users channel
   const ChannelPreview = () => (
     <p className="channel-preview__item">
       # {channel?.data?.name || channel?.data?.id}
     </p>
   );
 
+  // get direct messages exclude user themselves
   const DirectPreview = () => {
     const members = Object.values(channel.state.members).filter(({ user }) => user.id !== client.userID);
 
