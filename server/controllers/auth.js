@@ -4,7 +4,7 @@ const StreamChat = require('stream-chat').StreamChat; // Instance of streamchat
 const crypto = require('crypto'); // The crypto module provides a way of handling encrypted data.
 
 require('dotenv').config();
-// Enviroment Variables - Update in .evn file
+// Enviroment Variables - Update in .env file
 // get API keys from getstream.io
 const api_key = process.env.STREAM_API_KEY;
 const api_secret = process.env.STREAM_API_SECRET;
@@ -46,11 +46,11 @@ const login = async (req, res) => {
         const { users } = await client.queryUsers({ name: username });
         // if no user matching, send error response
         if(!users.length) return res.status(400).json({ message: 'User not found' });
-        // if user , check if password matches hash
+        // if user, check if password matches hash
         const success = await bcrypt.compare(password, users[0].hashedPassword);
         // create user token
         const token = serverClient.createUserToken(users[0].id);
-        // if password matches then send date back to front end
+        // if password matches then send data back to front end
         const data = { 
           token, 
           fullName: users[0].fullName, 
@@ -63,7 +63,7 @@ const login = async (req, res) => {
         } else {
             res.status(500).json({ message: 'Incorrect password' });
         }
-    } catch (error) {ads
+    } catch (error) {
         console.log(error);
 
         res.status(500).json({ message: error });

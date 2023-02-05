@@ -4,5 +4,5 @@ Start Server:
 Start development 
 `npm run dev`
 
-Reset database:
+Reset sql database:
 `npm run db:reset`

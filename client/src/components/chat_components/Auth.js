@@ -31,7 +31,7 @@ const handleSubmit = async (e) => {
     const { username, password, phoneNumber, avatarURL } = form;
 
     const URL = 'http://localhost:3001/auth';
-    // const URL = 'https://medical-pager.herokuapp.com/auth';
+
     // await will send data to backend and we will get 'data' back on the front end ( Destructing Data we get back :{ token, userId, hashedPassword, fullName })
     const { data: { token, userId, hashedPassword, fullName } } = await axios.post(`${URL}/${isSignup ? 'signup' : 'login'}`, {
         username, password, fullName: form.fullName, phoneNumber, avatarURL, // data we are passing to the back end
