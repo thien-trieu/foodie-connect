@@ -8,15 +8,6 @@ function ChannelSearch() {
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
 
-  //search channels
-  const onSearch = (e) => {
-    e.preventDefault();
-  
-    setLoading(true);
-    setQuery(e.target.value);
-    getChannels(e.target.value)
-  }
-
   //fetch channels
   const getChannels = async (text) => {
     try {
@@ -41,7 +32,14 @@ function ChannelSearch() {
         setQuery('')
     }
 }
+  //search channels
+  const onSearch = (e) => {
+    e.preventDefault();
 
+    setLoading(true);
+    setQuery(e.target.value);
+    getChannels(e.target.value)
+  }
 
   
   return (

@@ -30,21 +30,21 @@ const CompanyHeader = () => (
 )
 
 function ChannelListContainer() {
-  const logout =() => {
-  cookies.remove("token");
-  cookies.remove('userId');
-  cookies.remove('username');
-  cookies.remove('fullName');
-  cookies.remove('avatarURL');
-  cookies.remove('hashedPassword');
-  cookies.remove('phoneNumber');
-  
-  window.location.reload();
-  }
+  //logout function remove and clear cookies
+  const logout = () => {
+    cookies.remove("token");
+    cookies.remove('userId');
+    cookies.remove('username');
+    cookies.remove('fullName');
+    cookies.remove('avatarURL');
+    cookies.remove('hashedPassword');
+    cookies.remove('phoneNumber');
 
+    window.location.reload();
+  }
   return (
     <>
-      <SideBar logout={logout}/>
+      <SideBar logout={logout} />
       <div className="channel-list__list__wrapper">
         <CompanyHeader />
         <ChannelSearch />
