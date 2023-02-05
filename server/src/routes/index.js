@@ -5,9 +5,12 @@ const IndexRoutes = require('./IndexRoutes');
 const ChoicesRoutes = require('./ChoicesRoutes');
 const UserRoutes = require('./UsersRoutes');
 
+
+
 const router = express.Router();
 
 // RENDERING ROUTES
+
 router.use('/', IndexRoutes);
 
 

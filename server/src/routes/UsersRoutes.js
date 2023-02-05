@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { createUser, getByEmail } = require('../models/UsersModel')
+// const { createUser, getByEmail } = require('../models/UsersModel')
 
 const { UsersController } = require('../controllers');
 
@@ -9,33 +9,37 @@ const router = express.Router();
 
 router.get('/', UsersController.getAll);
 
-router.post('/register', (req,res) => {
+//post routes for signup and login
+router.post('/register', register);
+router.post('/login', login);
 
-  const {name, email, password, location } = req.body
+// router.post('/register', (req,res) => {
 
-  createUser(name, email, password, location)
-    .then(getByEmail(email))
-    .then(user =>{
+//   const {name, email, password, location } = req.body
 
-      console.log('Got the user?', user)
-      return res.send(user)
-    })
+//   createUser(name, email, password, location)
+//     .then(getByEmail(email))
+//     .then(user =>{
 
-})
+//       console.log('Got the user?', user)
+//       return res.send(user)
+//     })
 
-router.post('/login', (req,res) => {
+// })
 
-  const { email, password } = req.body
-  getByEmail(email)
-    .then(user =>{
+// router.post('/login', (req,res) => {
 
-      if (user.password !== password){
-        return res.send("Invalid Creditials")
-      }
-      console.log('Got the user?', user)
-      return res.send(user)
-    })
+//   const { email, password } = req.body
+//   getByEmail(email)
+//     .then(user =>{
 
-})
+//       if (user.password !== password){
+//         return res.send("Invalid Creditials")
+//       }
+//       console.log('Got the user?', user)
+//       return res.send(user)
+//     })
+
+// })
 
 module.exports = router;
