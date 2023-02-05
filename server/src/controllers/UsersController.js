@@ -1,7 +1,7 @@
 // const { UsersModel } = require('../models');
 const { connect } = require('getStream');
 const bcrypt = require('bcrypt');
-const StreamChat = require('stream-chat');
+const StreamChat = require('stream-chat').StreamChat;
 const crypto = require('crypto');
 
 require('dotenv').config();
