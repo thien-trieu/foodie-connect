@@ -29,8 +29,19 @@ const CompanyHeader = () => (
   </div>
 )
 
+const customChannelTeamFilter = (channels) => {
+  return channels.filter((channel) => channel.type === 'team');
+}
+
+const customChannelMessagingFilter = (channels) => {
+  return channels.filter((channel) => channel.type === 'messaging');
+}
+
 //pass in create, edit, type
-function ChannelListContainer({ isCreating, setIsCreating, setCreateType, setIsEditing }) {
+function ChannelListContent({ isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer }) {
+
+  const { client } = useChatContext();
+
   //logout function remove and clear cookies
   const logout = () => {
     cookies.remove("token");
@@ -43,6 +54,12 @@ function ChannelListContainer({ isCreating, setIsCreating, setCreateType, setIsE
 
     window.location.reload();
   }
+  
+
+  // $in - included
+  const filters = { members: { $in: [client.userID]}}
+
+
   return (
     <>
       <SideBar logout={logout} />
@@ -51,8 +68,8 @@ function ChannelListContainer({ isCreating, setIsCreating, setCreateType, setIsE
         <ChannelSearch />
         {/* GROUP MESSAGES */}
         <ChannelList 
-                    filters={{}}
-                    channelRenderFilterFn={()=>{}}
+                    filters={{filters}}
+                    channelRenderFilterFn={customChannelTeamFilter}
                     List={(listProps) => (
                         <TeamChannelList 
                             {...listProps}
@@ -61,19 +78,23 @@ function ChannelListContainer({ isCreating, setIsCreating, setCreateType, setIsE
                             setIsCreating={setIsCreating}
                             setCreateType={setCreateType}
                             setIsEditing={setIsEditing}
+                            setToggleContainer={setToggleContainer}
                         />
                     )}
                     Preview={(previewProps) => (
                       <TeamChannelPreview 
                           {...previewProps}
+                          setIsCreating={setIsCreating}
+                          setIsEditing={setIsEditing}
+                          setToggleContainer={setToggleContainer}
                           type="team"
                       />
                     )}
                 />
           {/* DIRECT MESSAGES */}
           <ChannelList 
-                    filters={{}}
-                    channelRenderFilterFn={()=>{}}
+                    filters={{filters}}
+                    channelRenderFilterFn={customChannelMessagingFilter}
                     List={(listProps) => (
                         <TeamChannelList 
                             {...listProps}
@@ -82,17 +103,51 @@ function ChannelListContainer({ isCreating, setIsCreating, setCreateType, setIsE
                             setIsCreating={setIsCreating}
                             setCreateType={setCreateType}
                             setIsEditing={setIsEditing}
-                        />
+                            setToggleContainer={setToggleContainer}
+                        /> 
                     )}
                     Preview={(previewProps) => (
                       <TeamChannelPreview 
                           {...previewProps}
+                          setIsCreating={setIsCreating}
+                          setIsEditing={setIsEditing}
+                          setToggleContainer={setToggleContainer}
                           type="messaging"
                           
                       />
                     )}
                 />
       </div>
+    </>
+  )
+}
+
+// toggle animation in mobile view
+const ChannelListContainer = ({ setCreateType, setIsCreating, setIsEditing }) => { 
+  const [toggleContainer, setToggleContainer] = useState(false)
+
+  return (
+    <>
+      <div className="channel-list__container">
+        <channelListContent 
+          setIsCreating={setIsCreating}
+          setCreateType={setCreateType}
+          setIsEditing={setIsEditing}
+        />
+      </div>
+
+      <div className="channel-list__container-responsive"
+         style={{ left: toggleContainer ? "0%" : "-89%", backgroundColor: "#005fff" }}
+        >
+        <div className="channel-list__container-toggle" onClick={()=> setToggleContainer((prevToggleContainer) => !prevToggleContainer)}>
+        </div>
+          <channelListContent 
+            setIsCreating={setIsCreating}
+            setCreateType={setCreateType}
+            setIsEditing={setIsEditing}
+            setToggleContainer={setToggleContainer}
+          />
+        </div>
     </>
   )
 }

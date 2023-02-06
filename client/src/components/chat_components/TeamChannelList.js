@@ -1,7 +1,7 @@
 import React from 'react'
 import { AddChannel } from '../../assets';
 
-function TeamChannelList({ children, error = false, loading, type, isCreating, setIsCreating, setCreateType, setIsEditing }) {
+function TeamChannelList({ children, error = false, loading, type, isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer }) {
 
   //handle error when unable to retrieve team channels
   if (error) {
@@ -37,7 +37,7 @@ function TeamChannelList({ children, error = false, loading, type, isCreating, s
                     setCreateType={setCreateType} 
                     setIsEditing={setIsEditing}
                     type={type === 'team' ? 'team' : 'messaging'}
-        // setToggleContainer={setToggleContainer}
+                    setToggleContainer={setToggleContainer}
         />
       </div>
       {children}

@@ -1,10 +1,8 @@
 import React from 'react'
 
-const EditChannel = () => {
+function EditChannel() {
   return (
-    <div>
-      EditChannel
-    </div>
+    <div>EditChannel</div>
   )
 }
 
