@@ -37,7 +37,7 @@ function ChannelContainer({ isCreating, setIsCreating, isEditing, setIsEditing, 
     <div className="channel__container">
       <Channel
         EmptyStateIndicator={EmptyState}
-        Message={(messageProps, i) => <TeamMessage key={i} {...messageProps} />}
+        Message={(messageProps, i) => <MessageTeam key={i} {...messageProps} />}
       >
         <ChannelInner setIsEditing={setIsEditing} />
       </Channel>
