@@ -129,7 +129,7 @@ const ChannelListContainer = ({ setCreateType, setIsCreating, setIsEditing }) =>
   return (
     <>
       <div className="channel-list__container">
-        <channelListContent 
+        <ChannelListContent 
           setIsCreating={setIsCreating}
           setCreateType={setCreateType}
           setIsEditing={setIsEditing}
@@ -141,7 +141,7 @@ const ChannelListContainer = ({ setCreateType, setIsCreating, setIsEditing }) =>
         >
         <div className="channel-list__container-toggle" onClick={()=> setToggleContainer((prevToggleContainer) => !prevToggleContainer)}>
         </div>
-          <channelListContent 
+        <ChannelListContent 
             setIsCreating={setIsCreating}
             setCreateType={setCreateType}
             setIsEditing={setIsEditing}
