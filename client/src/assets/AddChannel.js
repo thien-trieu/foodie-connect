@@ -1,5 +1,7 @@
 import React from 'react';
 
+//add channel icon onClick to set create=true toggle
+
 export const AddChannel = ({ setCreateType, setIsCreating, setIsEditing, setToggleContainer, type }) => (
   <svg
     width='14'

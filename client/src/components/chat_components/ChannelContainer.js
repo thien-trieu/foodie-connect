@@ -1,5 +1,5 @@
 import React from 'react'
-import { Channel, useChatContext, MessageContext } from 'stream-chat-react';
+import { Channel, useChatContext, MessageTeam } from 'stream-chat-react';
 
 import { ChannelInner, CreateChannel, EditChannel, TeamMessage } from './';
 
@@ -19,11 +19,11 @@ function ChannelContainer({ isCreating, setIsCreating, isEditing, setIsEditing, 
     return (
       <div className="channel__container">
         <EditChannel setIsEditing={setIsEditing} />
-      </div>
+      </div> 
     )
   }
 
-  //when new chat has no message history
+//when new chat has no message history
   const EmptyState = () => (
     <div className="channel-empty__container">
       <p className="channel-empty__first">Start chatting now!</p>
