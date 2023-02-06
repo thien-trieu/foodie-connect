@@ -21,7 +21,7 @@ function App() {
   // if (user) {
     return (
       <div className="App">
-          <ChatContainer user={user} setUser={setUser}/>
+          <ChatContainer />
       </div>
     );
   // } else {
