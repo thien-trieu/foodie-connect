@@ -54,7 +54,7 @@ function ChannelListContent({ isCreating, setIsCreating, setCreateType, setIsEdi
 
     window.location.reload();
   }
-  
+
 
   // $in - included
   const filters = { members: { $in: [client.userID]}}
@@ -65,7 +65,7 @@ function ChannelListContent({ isCreating, setIsCreating, setCreateType, setIsEdi
       <SideBar logout={logout} />
       <div className="channel-list__list__wrapper">
         <CompanyHeader />
-        <ChannelSearch />
+        <ChannelSearch setToggleContainer={setToggleContainer}/>
         {/* GROUP MESSAGES */}
         <ChannelList 
                     filters={{filters}}
