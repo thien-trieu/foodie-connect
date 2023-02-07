@@ -1,45 +1,45 @@
-const express = require('express');
+// const express = require('express');
 
-// const { createUser, getByEmail } = require('../models/UsersModel')
+// // const { createUser, getByEmail } = require('../models/UsersModel')
 
-const { UsersController } = require('../controllers');
+// const { UsersController } = require('../controllers');
 
-const router = express.Router();
+// const router = express.Router();
 
 
-router.get('/', UsersController.getAll);
+// router.get('/', UsersController.getAll);
 
-//post routes for signup and login
-router.post('/register', register);
-router.post('/login', login);
+// //post routes for signup and login
+// router.post('/register', register);
+// router.post('/login', login);
 
-// router.post('/register', (req,res) => {
+// // router.post('/register', (req,res) => {
 
-//   const {name, email, password, location } = req.body
+// //   const {name, email, password, location } = req.body
 
-//   createUser(name, email, password, location)
-//     .then(getByEmail(email))
-//     .then(user =>{
+// //   createUser(name, email, password, location)
+// //     .then(getByEmail(email))
+// //     .then(user =>{
 
-//       console.log('Got the user?', user)
-//       return res.send(user)
-//     })
+// //       console.log('Got the user?', user)
+// //       return res.send(user)
+// //     })
 
-// })
+// // })
 
-// router.post('/login', (req,res) => {
+// // router.post('/login', (req,res) => {
 
-//   const { email, password } = req.body
-//   getByEmail(email)
-//     .then(user =>{
+// //   const { email, password } = req.body
+// //   getByEmail(email)
+// //     .then(user =>{
 
-//       if (user.password !== password){
-//         return res.send("Invalid Creditials")
-//       }
-//       console.log('Got the user?', user)
-//       return res.send(user)
-//     })
+// //       if (user.password !== password){
+// //         return res.send("Invalid Creditials")
+// //       }
+// //       console.log('Got the user?', user)
+// //       return res.send(user)
+// //     })
 
-// })
+// // })
 
-module.exports = router;
+// module.exports = router;
