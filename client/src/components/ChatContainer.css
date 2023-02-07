@@ -25,7 +25,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  align-items: center;
   padding: 2rem;
   background: #E47041;
 }
@@ -50,7 +50,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
+  width: 400px;
   padding: 2rem;
   box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
   border-radius: 5px;
@@ -437,7 +437,10 @@ body {
 }
 
 .channel-list__header {
-  padding-left: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
   height: 62px;
 }
 
@@ -1835,13 +1838,19 @@ div.rta__autocomplete.str-chat__emojisearch {
 
 
 .wrapper {
-  margin-left: 10px;
+  margin-bottom: 20px;
   text-align: left;
   width: 230px;
+
 }
 
+.chat-logo {
+  width: 50%;
+ 
+}
 .search {
   display: inline-flex;
+  align-items: center;
   padding: 5px;
   border-radius: 50px;
   transition: 0.4s;
