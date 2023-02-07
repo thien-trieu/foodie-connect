@@ -5,7 +5,7 @@ import ChatContainer from './components/ChatContainer';
 import { useState } from 'react';
 // import { useCookies } from 'react-cookie';
 import Cookies from 'js-cookie';
-// import 'semantic-ui-css/semantic.min.css'
+import 'semantic-ui-css/semantic.min.css'
 
 
 function App() {

@@ -102,3 +102,34 @@ export default function Login(props) {
 
   );
 }
+
+
+{/* <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+<Grid.Column style={{ maxWidth: 450 }}>
+  <Header as='h2' color='teal' textAlign='center'>
+    {isSignup ? 'Sign Up' : 'Sign In'}
+  </Header>
+  <div className="messages">
+    {/* {errorMessage()}
+    {successMessage()} */}
+//   </div>
+//   <Form size='large' onSubmit={(handleSubmit)}>
+//     <Segment stacked>
+//       {isSignup && (<Form.Input onChange={handleChange} name="fullName" fluid icon='user' iconPosition='left' placeholder='Full Name' type='text' required />)}
+//       <Form.Input onChange={handleChange} name="username" fluid icon='at' iconPosition='left' placeholder='Username' type='text' required />
+//       {isSignup && (<Form.Input onChange={handleChange} name="phoneNumber" fluid icon='at' iconPosition='left' placeholder='Phone Number' type='text' required />)}
+//       {isSignup && (<Form.Input onChange={handleChange} name="avatarURL" fluid icon='at' iconPosition='left' placeholder='Avatar URL' type='text' required />)}
+//       <Form.Input onChange={handleChange} name="password" fluid icon='lock' iconPosition='left' placeholder='Password' type='password' required />
+//       {isSignup && (<Form.Input onChange={handleChange} name="confirmPassword" fluid icon='lock' iconPosition='left' placeholder='Confirm Password' type='password' required />)}
+//       <Button onClick={()=>{}} color='teal' fluid size='large'>
+//           {isSignup ? "Sign Up" : "Sign In"}
+//       </Button>
+//     </Segment>
+//   </Form>
+//   <Message>
+//       <span onClick={switchMode}>
+//         {isSignup ? 'Sign In' : 'Sign Up'}
+//       </span>
+//   </Message>
+// </Grid.Column>
+// </Grid> */}
