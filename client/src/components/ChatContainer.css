@@ -41,6 +41,11 @@ body {
   height: 100%;
 }
 
+.auth__form-logo {
+ width: 60%;
+ height: 60%;
+}
+
 .auth__form-container_fields-content {
   display: flex;
   flex-direction: column;

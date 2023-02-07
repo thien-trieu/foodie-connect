@@ -5,7 +5,8 @@ import axios from 'axios';
 // Importing Components
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 
-import signinImage from '../../assets/LandingPage.jpg';
+import signinImage from '../../assets/LandingPageResize.jpg';
+import logo from '../../assets/4.png';
 
 const cookies = new Cookies();
 
@@ -65,6 +66,7 @@ function Auth() {
 
 
       <div className="auth__form-container_fields">
+        <img src={logo} alt="logo" className="auth__form-logo"/>
         <div className="auth__form-container_fields-content">
           <p>{isSignup ? 'Sign Up' : 'Sign In'}</p>
           <form onSubmit={(handleSubmit)}>
