@@ -16,7 +16,7 @@ const cookies = new Cookies()
 // getting the tokens
 const authToken = cookies.get("token");
 
-const client = StreamChat.getInstance('nucgcb4znxss');
+const client = StreamChat.getInstance('qgq3re3bh5sv');
 
 // if auth token exist we create a User with all the cookies we got.
 if (authToken) {
