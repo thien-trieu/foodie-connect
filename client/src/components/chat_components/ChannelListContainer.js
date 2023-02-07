@@ -3,8 +3,10 @@ import { ChannelList, useChatContext } from 'stream-chat-react';
 import Cookies from 'universal-cookie';
 
 import { ChannelSearch, TeamChannelList, TeamChannelPreview } from './';
-import HospitalIcon from '../../assets/hospital.png'
-import LogoutIcon from '../../assets/logout.png'
+import HospitalIcon from '../../assets/3.png'
+import LogoutIcon from '../../assets/Logout.png'
+
+import logo from '../../assets/5.png';
 
 const cookies = new Cookies();
 
@@ -25,7 +27,8 @@ const SideBar = ({ logout }) => (
 
 const CompanyHeader = () => (
   <div className="channel-list__header">
-    <p className="channel-list__header__text">Medical Pager</p>
+    <img src={logo} alt="logo" className="chat-logo" />
+    
   </div>
 )
 
@@ -127,7 +130,7 @@ const ChannelListContainer = ({ setCreateType, setIsCreating, setIsEditing }) =>
       </div>
 
         <div className="channel-list__container-responsive"
-          style={{ left: toggleContainer ? "0%" : "-89%", backgroundColor: "#005fff" }}
+        style={{ left: toggleContainer ? "0%" : "-89%", backgroundColor: "#00B5AD" }}
         >
         <div className="channel-list__container-toggle" onClick={()=> setToggleContainer((prevToggleContainer) => !prevToggleContainer)}>
         </div>

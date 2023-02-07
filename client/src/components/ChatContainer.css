@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #005fff;
+  --primary-color: #E47041;
   --primary-color-alpha: #005fff1a;
 }
 
@@ -25,7 +25,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  align-items: center;
   padding: 2rem;
   background: #E47041;
 }
@@ -41,11 +41,16 @@ body {
   height: 100%;
 }
 
+.auth__form-logo {
+ width: 60%;
+ height: 60%;
+}
+
 .auth__form-container_fields-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
+  width: 400px;
   padding: 2rem;
   box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
   border-radius: 5px;
@@ -81,7 +86,7 @@ body {
   padding: 0.55rem 0.4rem;
   border: 1px solid rgb(184, 196, 194);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 16px;
   outline: none;
   transition: all 150ms ease-in-out 0s;
   width: 85%;
@@ -144,7 +149,7 @@ body {
 }
 
 .auth__form-container_fields-account p {
-  font-size: 14px;
+  font-size: 16px;
   color: #000;
   font-weight: 500;
 }
@@ -272,7 +277,7 @@ body {
 }
 
 .channel-empty__first {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 18px;
   line-height: 120%;
@@ -285,8 +290,8 @@ body {
 }
 
 .channel-empty__second {
-  font-family: Helvetica Neue, sans-serif;
-  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
   line-height: 120%;
   margin: 0;
   color: #858688;
@@ -336,7 +341,7 @@ body {
 }
 
 .custom-thread-header__left-title {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 18px;
   line-height: 22px;
@@ -345,8 +350,8 @@ body {
 }
 
 .custom-thread-header__left-count {
-  font-family: Helvetica Neue, sans-serif;
-  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
   color: #858688;
 }
 
@@ -372,7 +377,7 @@ body {
 
 .channel-list__sidebar {
   width: 72px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
     var(--primary-color);
   box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.25);
   /* border-top-left-radius: 16px; */
@@ -382,7 +387,7 @@ body {
 .channel-list__sidebar__icon1 {
   width: 44px;
   height: 44px;
-  margin: 14px;
+  margin: 16px;
   background: linear-gradient(
       150.64deg,
       rgba(0, 0, 0, 0.1) 12.73%,
@@ -401,7 +406,7 @@ body {
 }
 
 .icon1__inner {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   height: 100%;
   display: flex;
   align-items: center;
@@ -411,7 +416,7 @@ body {
 .channel-list__sidebar__icon2 {
   width: 44px;
   height: 44px;
-  margin: 14px;
+  margin: 16px;
   background: linear-gradient(
       150.64deg,
       rgba(0, 0, 0, 0.1) 12.73%,
@@ -424,7 +429,7 @@ body {
 }
 
 .icon2__inner {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   height: 100%;
   display: flex;
   align-items: center;
@@ -432,12 +437,15 @@ body {
 }
 
 .channel-list__header {
-  padding-left: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
   height: 62px;
 }
 
 .channel-list__header__text {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -480,7 +488,7 @@ body {
   background: none;
   border: none;
   color: #fff;
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   outline: none;
 }
@@ -509,10 +517,10 @@ body {
   width: fit-content;
   display: flex;
   align-items: center;
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 120%;
   color: #858688;
   margin-left: 12px;
@@ -558,18 +566,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 120%;
   color: #ffffff;
 }
 
 .channel-search__result-text {
   width: 100%;
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 120%;
   color: #2c2c30;
 }
@@ -590,7 +598,7 @@ body {
 }
 
 .create-channel__header p {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 18px;
   line-height: 22px;
@@ -611,7 +619,7 @@ body {
 }
 
 .channel-name-input__wrapper p {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   line-height: 120%;
   color: #2c2c30;
@@ -619,7 +627,7 @@ body {
 }
 
 .channel-name-input__wrapper input {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   color: rgba(0, 0, 0, 0.5);
   height: 50px;
@@ -654,7 +662,7 @@ body {
 
 .create-channel__button-wrapper p {
   background: var(--primary-color);
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 18px;
   padding: 10px 20px;
@@ -677,8 +685,8 @@ body {
 }
 
 .user-list__header p {
-  font-family: Helvetica Neue, sans-serif;
-  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
   line-height: 17px;
   color: #858688;
   margin-top: 16px;
@@ -695,7 +703,7 @@ body {
 }
 
 .user-list__message {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   color: #2c2c30;
   margin: 20px;
@@ -721,8 +729,8 @@ body {
 }
 
 .user-item__wrapper p {
-  font-family: Helvetica Neue, sans-serif;
-  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
   line-height: 17px;
   color: #2c2c30;
   word-break: break-all;
@@ -767,7 +775,7 @@ body {
 }
 
 .edit-channel__header p {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 18px;
   line-height: 22px;
@@ -788,7 +796,7 @@ body {
 }
 
 .channel-name-input__wrapper p {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   line-height: 120%;
   color: #2c2c30;
@@ -796,7 +804,7 @@ body {
 }
 
 .channel-name-input__wrapper input {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   color: rgba(0, 0, 0);
   height: 50px;
@@ -829,7 +837,7 @@ body {
 
 .edit-channel__button-wrapper p {
   background: var(--primary-color);
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 18px;
   padding: 10px 20px;
@@ -862,11 +870,12 @@ body {
 }
 
 .team-channel-header__name {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
   color: #2c2c30;
   margin-right: 8px;
+  margin-left: 10px;
 }
 
 .team-channel-header__name-wrapper {
@@ -894,6 +903,7 @@ body {
   display: flex;
   align-items: center;
   margin-right: 8px;
+  margin-left: 8px;
 }
 
 .team-channel-header__name-multi:nth-child(3) {
@@ -906,7 +916,7 @@ body {
 
 .team-channel-header__name.user {
   font-weight: 500;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .team-channel-header__right {
@@ -929,8 +939,8 @@ body {
 }
 
 .team-channel-header__right-text {
-  font-family: Helvetica Neue, sans-serif;
-  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
   color: #858688;
 }
 
@@ -961,8 +971,9 @@ body {
 }
 
 .team-channel-list__header__title {
-  font-family: Helvetica Neue, sans-serif;
-  font-size: 13px;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-weight: bold;
   line-height: 16px;
   height: 16px;
   color: rgba(255, 255, 255, 0.66);
@@ -976,12 +987,12 @@ body {
 }
 
 .channel-preview__wrapper__selected {
-  height: auto;
+  line-height: 50%;
   display: flex;
   align-items: center;
-  background: rgba(0, 0, 0, 0.2);
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
   font-weight: bold;
   margin-right: 16px;
   cursor: pointer;
@@ -989,9 +1000,9 @@ body {
 }
 
 .channel-preview__wrapper:hover {
-  background: rgba(0, 0, 0, 0.2);
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
   font-weight: bold;
   margin-right: 16px;
   cursor: pointer;
@@ -1000,8 +1011,8 @@ body {
 .channel-preview__item {
   display: flex;
   align-items: center;
-  font-family: Helvetica Neue, sans-serif;
-  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
   color: #ffffff;
   padding: 0px 20px;
   height: 100%;
@@ -1052,7 +1063,7 @@ body {
 }
 
 .str-chat__message-team-content p {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: normal;
   line-height: 120%;
@@ -1081,20 +1092,20 @@ body {
 .str-chat__message-team-meta time {
   visibility: visible;
   z-index: 2;
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 10px;
+  font-size: 14px;
   color: #858688;
   margin-top: 4px;
 }
 
 .str-chat__message-team-author strong {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 11px;
-  line-height: 120%;
+  font-size: 16px;
+  line-height: 150%;
   color: #858688;
   margin: 0;
   margin-right: 8px;
@@ -1112,10 +1123,10 @@ body {
   z-index: 2;
   display: flex;
   /* justify-content: flex-end; */
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--primary-color);
 }
 
@@ -1129,7 +1140,7 @@ body {
 
 .str-chat__date-separator-date {
   color: #858688;
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: normal;
 }
@@ -1189,10 +1200,10 @@ ul.str-chat__simple-reactions-list:hover {
 }
 
 .str-chat__simple-reactions-list-item--last-number {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 11px;
+  font-size: 16px;
   color: #2c2c30;
 }
 
@@ -1259,8 +1270,8 @@ ul.str-chat__simple-reactions-list:hover {
 .str-chat__edit-message-form .str-chat__message-team-form-footer button {
   cursor: pointer;
   color: rgba(0, 0, 0, 0.33);
-  font-family: Helvetica Neue, sans-serif;
-  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
 }
 
 .str-chat__edit-message-form .str-chat__message-team-form-footer button:focus {
@@ -1301,12 +1312,12 @@ ul.str-chat__simple-reactions-list:hover {
 
 .str-chat__message-team-pin-indicator div svg {
   fill: #858688;
-  font-size: 10px !important;
+  font-size: 14px !important;
 }
 
 .str-chat__message-team-pin-indicator div div {
-  font-family: Helvetica Neue, sans-serif;
-  font-size: 10px !important;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px !important;
   line-height: 120%;
   color: #858688;
   margin-left: 4px;
@@ -1377,10 +1388,10 @@ ul.str-chat__simple-reactions-list:hover {
 }
 
 .team-message-input__wrapper .giphy-icon__text {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 16px;
   line-height: 8px;
   color: #ffffff;
 }
@@ -1411,10 +1422,10 @@ ul.str-chat__simple-reactions-list:hover {
   background: #fff;
   border: none;
   outline: none;
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 15px;
+  font-size: 16px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -1508,8 +1519,8 @@ div.rta__autocomplete.str-chat__emojisearch {
 }
 
 .rta__list-header {
-  font-family: Helvetica Neue, sans-serif;
-  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
   line-height: 16px;
   color: #2c2c30;
   mix-blend-mode: normal;
@@ -1545,10 +1556,10 @@ div.rta__autocomplete.str-chat__emojisearch {
 }
 
 .str-chat__thread-header-details small {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 17px;
   color: #858688;
 }
@@ -1617,10 +1628,10 @@ div.rta__autocomplete.str-chat__emojisearch {
 }
 
 .thread-message-input__wrapper .giphy-icon__text {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 16px;
   line-height: 8px;
   color: #ffffff;
 }
@@ -1660,8 +1671,8 @@ div.rta__autocomplete.str-chat__emojisearch {
   background: #fff;
   border: none;
   outline: none;
-  font-family: Helvetica Neue, sans-serif;
-  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
   line-height: 10px;
 }
 
@@ -1761,7 +1772,7 @@ div.rta__autocomplete.str-chat__emojisearch {
   }
 
   .team-channel-header__name.user {
-    font-size: 10px;
+    font-size: 16px;
     margin: 5px;
     text-align: center;
   }
@@ -1823,4 +1834,62 @@ div.rta__autocomplete.str-chat__emojisearch {
   .channel-list__sidebar {
     display: none;
   }
+}
+
+
+.wrapper {
+  margin-bottom: 20px;
+  text-align: left;
+  width: 230px;
+
+}
+
+.chat-logo {
+  width: 50%;
+ 
+}
+.search {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 50px;
+  transition: 0.4s;
+  max-height: 30px;
+}
+
+.search:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.search:hover input {
+  max-width: 180px;
+}
+
+.search input {
+  background: transparent;
+  border: 0;
+  max-width: 0;
+  padding: 0;
+  text-indent: 12px;
+  color: #000000;
+  font-size: 22px;
+  font-family: "Poppins";
+  outline: none;
+  transition: 0.4s;
+}
+
+.search input::placeholder {
+  color: rgba(255, 255, 255, 0.375);
+}
+
+.search span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: rgba(233, 233, 234, 0.7);
+  color: #000000;
+  border-radius: inherit;
+  font-size: 20px;
+  pointer-events: none;
 }
