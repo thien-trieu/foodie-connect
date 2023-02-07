@@ -1,11 +1,11 @@
-const express = require('express');
+// const express = require('express');
 
-const router = express.Router();
+// const router = express.Router();
 
-const { IndexController } = require('../controllers');
+// const { IndexController } = require('../controllers');
 
-// ----------------------- ROUTES / ENDPOINTS
-router.get('/', IndexController.helloWorld);
-router.get('/home', IndexController.homepage);
+// // ----------------------- ROUTES / ENDPOINTS
+// router.get('/', IndexController.helloWorld);
+// router.get('/home', IndexController.homepage);
 
-module.exports = router;
+// module.exports = router;
