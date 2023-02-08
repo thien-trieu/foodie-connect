@@ -15,6 +15,16 @@ const CompanyHeader = () => (
   </div>
 )
 
+const customPublicChannelFilter = (channels) => {
+  return channels
+    .filter((channel) => channel.type === 'public')
+    .sort((a, b) => {
+      if (a.data.name < b.data.name) return -1;
+      if (a.data.name > b.data.name) return 1;
+      return 0;
+    });
+}
+
 const customChannelTeamFilter = (channels) => {
   return channels.filter((channel) => channel.type === 'team');
 }
@@ -27,6 +37,7 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
   const { client } = useChatContext();
 
   const filters = { members: { $in: [client.userID] } };
+  const publicFilter = { type: "public" };
 
   return (
     <>
@@ -34,19 +45,43 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
       <div className="channel-list__list__wrapper">
         <CompanyHeader />
           <ChannelSearch setToggleContainer={setToggleContainer} />
-          <ChannelList 
+        <ChannelList
+          filters={publicFilter}
+          channelRenderFilterFn={customPublicChannelFilter}
+          List={(listProps) => (
+            <TeamChannelList
+              {...listProps}
+              type="public"
+              isCreating={isCreating}
+              setIsCreating={setIsCreating}
+              setCreateType={setCreateType}
+              setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
+            />
+          )}
+          Preview={(previewProps) => (
+            <TeamChannelPreview
+              {...previewProps}
+              setIsCreating={setIsCreating}
+              setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
+              type="public"
+            />
+          )}
+        />
+        <ChannelList 
             filters={filters}
-                    channelRenderFilterFn={customChannelTeamFilter}
+          channelRenderFilterFn={customChannelTeamFilter}
                     List={(listProps) => (
                         <TeamChannelList 
                             {...listProps}
-                            type="team"
+                        type="team"
                             isCreating={isCreating}
                             setIsCreating={setIsCreating}
                           setCreateType={setCreateType} 
                             setIsEditing={setIsEditing}
                             setToggleContainer={setToggleContainer}
-                        />
+                      />
                     )}
                     Preview={(previewProps) => (
                       <TeamChannelPreview
@@ -57,31 +92,31 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
                         type="team"
                       />
                     )}
-          />
-          <ChannelList 
-            filters={filters}
-                    channelRenderFilterFn={customChannelMessagingFilter}
-                    List={(listProps) => (
-                        <TeamChannelList 
-                            {...listProps}
-                            type="messaging"
-                            isCreating={isCreating}
-                            setIsCreating={setIsCreating}
-                        setCreateType={setCreateType} 
-                            setIsEditing={setIsEditing}
-                            setToggleContainer={setToggleContainer}
-                      />
-                    )}
-                    Preview={(previewProps) => (
-                      <TeamChannelPreview
-                        {...previewProps}
-                        setIsCreating={setIsCreating}
-                        setIsEditing={setIsEditing}
-                        setToggleContainer={setToggleContainer}
-                        type="messaging"
-                      />
-                    )}
-                />
+        />
+        <ChannelList
+          filters={filters}
+          channelRenderFilterFn={customChannelMessagingFilter}
+          List={(listProps) => (
+            <TeamChannelList
+              {...listProps}
+              type="messaging"
+              isCreating={isCreating}
+              setIsCreating={setIsCreating}
+              setCreateType={setCreateType}
+              setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
+            />
+          )}
+          Preview={(previewProps) => (
+            <TeamChannelPreview
+              {...previewProps}
+              setIsCreating={setIsCreating}
+              setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
+              type="messaging"
+            />
+          )}
+        />
         </div>
       </>
     );

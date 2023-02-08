@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
+import env from "react-dotenv"
 
 const initialState = {
   location: '',
@@ -24,7 +24,7 @@ export default function ResturantData() {
     const { location, term } = form;
 
 
-    const YPAPIKEY = 'ftpPW32gFELnpKpQZdtqAkt5-aV6_1sHjOHR2lAWPABfNNjSLJuZq4ZSKDTuotgFEtfRzFUzHMktRF3satQ8vt28N1xvD2g-21kFZQVOCGZ6p5RwfVRNxbPxbTLjY3Yx';
+    const YAPIKEY = env.YAPIKEY;
 
     const fetchResturants = async () => {
       const data = await axios
@@ -32,7 +32,7 @@ export default function ResturantData() {
           `${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?`,
           {
             headers: {
-              Authorization: `Bearer ${YPAPIKEY}`,
+              Authorization: `Bearer ${YAPIKEY}`,
               Accept: 'application/json',
               "Content-Type": 'application/json',
               "Access-Control-Allow-Headers": '*',
