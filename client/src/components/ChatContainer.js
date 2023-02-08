@@ -38,31 +38,18 @@ if (authToken) {
 
 
 export default function ChatContainer() { 
-
+  const userID = cookies.get('userId')
+  console.log('USER ID', cookies.get('userId'))
 
   useEffect(()=>{
-
     async function init() {
-
-      const userID = cookies.get('userId')  
-      console.log('USER ID', cookies.get('userId'))
-      const filter = { type: 'livestream', id: 'livestream' };
-      const sort = [{ last_message_at: -1 }];
-      
-      const channel = await client.queryChannels(filter, sort, {
-          watch: true, // this is the default
-          state: true,
-      });
-      
-      console.log('CHANNEL', channel)
-    // const channel = client.channel('team', 'Shopping', {
-    //   name: 'Awesome channel about traveling',});
-    //   console.log('Chanel', channel)
-    //   // Here, 'travel' will be the channel ID
-    //  await channel.create();
+    const channel = client.channel('team', 'travel', {
+      name: 'Awesome channel about traveling',});
+      console.log('Channel', channel)
+      // Here, 'travel' will be the channel ID
+     await channel.create();
      await channel.addMembers([userID]);
     }
-    
     init()
   }, [])
   //set states for createType(input-field), create, edit default to false

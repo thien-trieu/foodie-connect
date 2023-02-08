@@ -33,7 +33,7 @@ function TeamChannelList({ children, error = false, loading, type, isCreating, s
         <p className="team-channel-list__header__title">
           {type === 'team' && 'Channels'}
           {type === 'messaging' && 'Direct Messages'}
-          {type === 'livestream' && 'Live Stream'}
+          {type === 'livestream' && 'Live Stream :)'}
         </p>
         <AddChannel 
                     isCreating={isCreating}
