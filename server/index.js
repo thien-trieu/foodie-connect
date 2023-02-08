@@ -14,6 +14,7 @@ const app = express(); // Starting APP with Express Server
 const port = process.env.PORT || 3001;
 
 
+
 app.use(helmet()); // includes security headers (owasp)
 app.use(morgan('dev')); // middleware that logs all the requests
 app.use(cors()); // cross origin requests
@@ -22,6 +23,7 @@ app.use(express.urlencoded({extended:false})); //body parser
 
 // ROOT ROUTE
 app.get('/', (req, res) => {
+  
   res.send('Hello World')
 })
 
