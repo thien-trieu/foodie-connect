@@ -9,14 +9,14 @@ import 'semantic-ui-css/semantic.min.css'
 
 
 function App() {
-  const [user, setUser] = useState(Cookies.get('user'))
-  const [currentForm, setCurrentForm] = useState('login');
+  // const [user, setUser] = useState(Cookies.get('user'))
+  // const [currentForm, setCurrentForm] = useState('login');
 
-  const toggleForm = (formName) => {
-    setCurrentForm(formName);
-  }
+  // const toggleForm = (formName) => {
+  //   setCurrentForm(formName);
+  // }
 
-  console.log(user)
+  // console.log(user)
 
   // if (user) {
     return (

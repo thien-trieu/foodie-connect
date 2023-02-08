@@ -27,8 +27,9 @@ const signup = async (req, res) => {
         const data = { token, fullName, username, userId, hashedPassword, phoneNumber }
         console.log('Signing Up User: ', data)
 
+
         res.status(200).json({ token, fullName, username, userId, hashedPassword, phoneNumber });
-    } catch (error) {
+        } catch (error) {
         console.log(error);
 
         res.status(500).json({ message: error });

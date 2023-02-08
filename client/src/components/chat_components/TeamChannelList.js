@@ -18,7 +18,9 @@ function TeamChannelList({ children, error = false, loading, type, isCreating, s
     return (
       <div className="team-channel-list">
         <p className="team-channel-list__message loading">
-          {type === 'team' ? 'Channels' : 'Messages'} loading...
+          {type === 'team' && 'Channels loading...'}
+          {type === 'messaging' && 'Messages loading...'}
+          {type === 'livestream' && 'Live Stream loading...'}
         </p>
       </div>
     )
@@ -29,7 +31,9 @@ function TeamChannelList({ children, error = false, loading, type, isCreating, s
     <div className="team-channel-list">
       <div className="team-channel-list__header">
         <p className="team-channel-list__header__title">
-          {type === 'team' ? 'Channels' : 'Direct Messages'}
+          {type === 'team' && 'Channels'}
+          {type === 'messaging' && 'Direct Messages'}
+          {type === 'livestream' && 'Live Stream'}
         </p>
         <AddChannel 
                     isCreating={isCreating}

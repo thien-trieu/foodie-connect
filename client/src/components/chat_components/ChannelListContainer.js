@@ -40,6 +40,10 @@ const customChannelMessagingFilter = (channels) => {
   return channels.filter((channel) => channel.type === 'messaging');
 }
 
+const customChannelLivestreamFilter = (channels) => {
+  return channels.filter((channel) => channel.type === 'livestream');
+}
+
 const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer }) => {
   const { client } = useChatContext();
 
@@ -63,6 +67,29 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
       <div className="channel-list__list__wrapper">
         <CompanyHeader />
           <ChannelSearch setToggleContainer={setToggleContainer} />
+          <ChannelList filters={filters}
+            channelRenderFilterFn={customChannelLivestreamFilter} 
+                  List={(listProps) => (
+                    <TeamChannelList 
+                        {...listProps}
+                        type="livestream"
+                        isCreating={isCreating}
+                        setIsCreating={setIsCreating}
+                      setCreateType={setCreateType} 
+                        setIsEditing={setIsEditing}
+                        setToggleContainer={setToggleContainer}
+                    />
+                )}
+                Preview={(previewProps) => (
+                  <TeamChannelPreview
+                    {...previewProps}
+                    setIsCreating={setIsCreating}
+                    setIsEditing={setIsEditing}
+                    setToggleContainer={setToggleContainer}
+                    type="livestream"
+                  />
+                )}
+          />
           <ChannelList 
             filters={filters}
                     channelRenderFilterFn={customChannelTeamFilter}
@@ -72,7 +99,7 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
                             type="team"
                             isCreating={isCreating}
                             setIsCreating={setIsCreating}
-                        setCreateType={setCreateType} 
+                          setCreateType={setCreateType} 
                             setIsEditing={setIsEditing}
                             setToggleContainer={setToggleContainer}
                         />
