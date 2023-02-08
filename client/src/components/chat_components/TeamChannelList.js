@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AddChannel } from '../../assets';
+import { Icon } from 'semantic-ui-react';
+
 
 function TeamChannelList({ children, error = false, loading, type, isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer }) {
 
+  const [isExpanded, setIsExpanded] = useState(true);
   //handle error when unable to retrieve team channels
   if (error) {
     console.log(error);
@@ -27,10 +30,16 @@ function TeamChannelList({ children, error = false, loading, type, isCreating, s
     )
   }
 
-  
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <div className="team-channel-list">
       <div className="team-channel-list__header">
+        <div className="team-channel-list__header__icon" onClick={handleToggle}>
+          {isExpanded ? <i class="angle up icon"></i> : <i class="angle down icon"></i>}
+        </div>
         <p className="team-channel-list__header__title">
           {type === 'team' && 'Channels'}
           {type === 'messaging' && 'Direct Messages'}
@@ -47,7 +56,7 @@ function TeamChannelList({ children, error = false, loading, type, isCreating, s
         />
         )}
       </div>
-      {children}
+      {isExpanded && children}
     </div>
   )
 }

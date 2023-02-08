@@ -405,7 +405,7 @@ body {
   display: flex;
   flex-direction: column;
   background: var(--primary-color);
-  width: 230px;
+  width: 250px;
 }
 
 .icon1__inner {
