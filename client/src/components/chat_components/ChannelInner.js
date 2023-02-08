@@ -38,7 +38,7 @@ const ChannelInner = ({ setIsEditing }) => {
     <GiphyContext.Provider value={{ giphyState, setGiphyState }}>
       <div style={{ display: 'flex', width: '100%' }}>
         <Window>
-          <img src={channel?.data?.image || null} />
+          <img src={channel?.data?.image || null} style={{ display: 'flex', width: '100%' }} />
           <TeamChannelHeader setIsEditing={setIsEditing} />
           <MessageList />
           <MessageInput overrideSubmitHandler={overrideSubmitHandler} />

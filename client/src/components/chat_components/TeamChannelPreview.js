@@ -46,7 +46,7 @@ function TeamChannelPreview({ setActiveChannel, setIsCreating, setIsEditing, set
         }
       }}
     >
-      {type === 'team' ? <ChannelPreview /> : <DirectPreview />}
+      {type === 'messaging' ? <DirectPreview /> : <ChannelPreview />}
     </div>
   );
 }

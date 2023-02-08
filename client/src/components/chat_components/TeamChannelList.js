@@ -36,6 +36,7 @@ function TeamChannelList({ children, error = false, loading, type, isCreating, s
           {type === 'messaging' && 'Direct Messages'}
           {type === 'public' && 'Public Channels'}
         </p>
+        {type !== 'public' && (
         <AddChannel 
                     isCreating={isCreating}
                     setIsCreating={setIsCreating}
@@ -44,6 +45,7 @@ function TeamChannelList({ children, error = false, loading, type, isCreating, s
                     type={type === 'team' ? 'team' : 'messaging'}
                     setToggleContainer={setToggleContainer}
         />
+        )}
       </div>
       {children}
     </div>
