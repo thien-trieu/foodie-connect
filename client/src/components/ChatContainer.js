@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { StreamChat } from 'stream-chat';
 import { Chat } from 'stream-chat-react';
 import Cookies from 'universal-cookie';
+
+// Components
 import ResturantData from './RestaurantData';
+import MatchGame from './MatchGame';
+import { ChannelListContainer, ChannelContainer, Auth } from './chat_components';
 
 // Side Bar icons
 import logoIcon from '../assets/3.png'
 import LogoutIcon from '../assets/Logout.png'
-import restaurantIcon from '../assets/feature-icon.png'
+import restaurantIcon from '../assets/restaurantIcon.png'
+import matchIcon from '../assets/matchgameicon.png'
 
 import 'stream-chat-react/dist/css/index.css';
 import './ChatContainer.css';
-
-import { ChannelListContainer, ChannelContainer, Auth } from './chat_components';
 
 // Instead of setting the values here, we are going to get them
 // to see if a user was logged in from Auth component
@@ -37,13 +40,18 @@ if (authToken) {
 
 const SideBar = ({ logout, setCurrentFeature }) => {
 
-const handleFeatureClick = (e) =>{
+const handleRestaurantClick = (e) =>{
   e.preventDefault()
-  setCurrentFeature('feature')
+  setCurrentFeature('restuarant-search')
 }
 const handleChatClick = (e) =>{
   e.preventDefault()
   setCurrentFeature('chat')
+}
+
+const handleMatchGameClick = (e) =>{
+  e.preventDefault()
+  setCurrentFeature('match-game')
 }
 return (
   <div className="channel-list__sidebar">
@@ -54,7 +62,12 @@ return (
     </div>
     <div className="channel-list__sidebar__icon1">
       <div className="icon1__inner">
-        <img src={restaurantIcon} alt="Resturant" width="30" onClick={handleFeatureClick}/>
+        <img src={restaurantIcon} alt="Resturant" width="30" onClick={handleRestaurantClick}/>
+      </div>
+    </div>
+    <div className="channel-list__sidebar__icon1">
+      <div className="icon1__inner">
+        <img src={matchIcon} alt="Resturant" width="30" onClick={handleMatchGameClick} style={{'background-color': 'black'}}/>
       </div>
     </div>
     <div className="channel-list__sidebar__icon2">
@@ -66,8 +79,6 @@ return (
 )};
 
 export default function ChatContainer() { 
-  const userID = cookies.get('userId')
-  console.log('USER ID', cookies.get('userId'))
 
   const [currentFeature, setCurrentFeature] = useState('chat');
 
@@ -100,7 +111,8 @@ export default function ChatContainer() {
   return (
     <div className="app__wrapper">
       <SideBar setCurrentFeature={setCurrentFeature} currentFeature={currentFeature} toggleFeature={toggleFeature} logout={logout} />
-      { currentFeature === 'feature' && <ResturantData />}
+      { currentFeature === 'restuarant-search' && <ResturantData />}
+      { currentFeature === 'match-game' && <MatchGame />}
       { currentFeature === 'chat' && <Chat client={client} theme="team light">
         <ChannelListContainer
           isCreating={isCreating}
