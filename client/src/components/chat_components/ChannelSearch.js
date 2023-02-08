@@ -26,7 +26,7 @@ const ChannelSearch = ({ setToggleContainer }) => {
 
     const getChannels = async (text) => {
         try {
-          const publicFilter = { type: 'livestream' };
+          const publicFilter = { type: 'public' };
           const sort = [{ last_message_at: -1 }];
 
           const publicChannelsResult = await client.queryChannels(publicFilter, sort, {

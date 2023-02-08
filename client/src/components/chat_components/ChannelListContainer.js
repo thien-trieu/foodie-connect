@@ -32,6 +32,10 @@ const CompanyHeader = () => (
   </div>
 )
 
+const customPublicChannelFilter = (channels) => {
+  return channels.filter((channel) => channel.type === 'public');
+}
+
 const customChannelTeamFilter = (channels) => {
   return channels.filter((channel) => channel.type === 'team');
 }
@@ -111,6 +115,30 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
                       />
                     )}
                 />
+        <ChannelList
+          filters={filters}
+          channelRenderFilterFn={customPublicChannelFilter}
+          List={(listProps) => (
+            <TeamChannelList
+              {...listProps}
+              type="public"
+              isCreating={isCreating}
+              setIsCreating={setIsCreating}
+              setCreateType={setCreateType}
+              setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
+            />
+          )}
+          Preview={(previewProps) => (
+            <TeamChannelPreview
+              {...previewProps}
+              setIsCreating={setIsCreating}
+              setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
+              type="public"
+            />
+          )}
+        />
         </div>
       </>
     );
