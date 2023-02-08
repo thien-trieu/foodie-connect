@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 //built in stream-chat-react components
-import { MessageList, MessageInput, Thread, Window, useChannelActionContext, Avatar, useChannelStateContext, useChatContext } from 'stream-chat-react';
+import { MessageList, MessageInput, Thread, Window, useChannelActionContext, Avatar, useChannelStateContext, useChatContext, ChannelHeader, Channel } from 'stream-chat-react';
 
 import { ChannelInfo } from '../../assets';
 
@@ -12,6 +12,8 @@ const ChannelInner = ({ setIsEditing }) => {
   const [giphyState, setGiphyState] = useState(false);
   //pass and send message to channel with hook from stream-chat-react library
   const { sendMessage } = useChannelActionContext();
+
+  const { channel } = useChannelStateContext();
   //update message object after new message submitted
   const overrideSubmitHandler = (message) => {
     let updatedMessage = {
@@ -36,6 +38,7 @@ const ChannelInner = ({ setIsEditing }) => {
     <GiphyContext.Provider value={{ giphyState, setGiphyState }}>
       <div style={{ display: 'flex', width: '100%' }}>
         <Window>
+          <img src={channel?.data?.image} />
           <TeamChannelHeader setIsEditing={setIsEditing} />
           <MessageList />
           <MessageInput overrideSubmitHandler={overrideSubmitHandler} />

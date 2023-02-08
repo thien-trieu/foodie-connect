@@ -12,15 +12,33 @@ const ChannelSearch = ({ setToggleContainer }) => {
     const [teamChannels, setTeamChannels] = useState([])
     const [directChannels, setDirectChannels] = useState([])
 
+
+  const [publicChannels, setPublicChannels] = useState([])
+
+
     useEffect(() => {
         if(!query) {
             setTeamChannels([]);
             setDirectChannels([]);
+          setPublicChannels([]);
         }
     }, [query])
 
     const getChannels = async (text) => {
         try {
+          const publicFilter = { type: 'livestream' };
+          const sort = [{ last_message_at: -1 }];
+
+          const publicChannelsResult = await client.queryChannels(publicFilter, sort, {
+            watch: true, // this is the default
+            state: true,
+          });
+
+          publicChannels.map((channel) => {
+            console.log(channel.data.name, channel.cid)
+          })
+
+
             const channelResponse = client.queryChannels({
                 type: 'team', 
                 name: { $autocomplete: text }, 
@@ -32,7 +50,7 @@ const ChannelSearch = ({ setToggleContainer }) => {
             })
 
             const [channels, { users }] = await Promise.all([channelResponse, userResponse]);
-
+          if (publicChannelsResult.length) setPublicChannels(publicChannelsResult);
             if(channels.length) setTeamChannels(channels);
             if(users.length) setDirectChannels(users);
         } catch (error) {
@@ -83,6 +101,7 @@ const ChannelSearch = ({ setToggleContainer }) => {
           </div>
             { query && (
             <ResultsDropdown 
+              publicChannels={publicChannels}
                 teamChannels={teamChannels}
                 directChannels={directChannels}
                 loading={loading}

@@ -57,10 +57,33 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleContainer
   );
 };
 
-const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, setChannel, setToggleContainer }) => {
+const ResultsDropdown = ({ publicChannels, teamChannels, directChannels, focusedId, loading, setChannel, setToggleContainer }) => {
 
   return (
     <div className='channel-search__results'>
+      <p className='channel-search__results-header'>Public Channels</p>
+      {loading && !teamChannels.length && (
+        <p className='channel-search__results-header'>
+          <i>Loading...</i>
+        </p>
+      )}
+      {!loading && !publicChannels.length ? (
+        <p className='channel-search__results-header'>
+          <i>No public channels found</i>
+        </p>
+      ) : (
+        publicChannels?.map((channel, i) => (
+          <SearchResult
+            channel={channel}
+            focusedId={focusedId}
+            key={i}
+            setChannel={setChannel}
+            type='channel'
+            setToggleContainer={setToggleContainer}
+          />
+        ))
+      )}
+
       <p className='channel-search__results-header'>Channels</p>
       {loading && !teamChannels.length && (
         <p className='channel-search__results-header'>

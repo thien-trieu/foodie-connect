@@ -405,7 +405,7 @@ body {
   display: flex;
   flex-direction: column;
   background: var(--primary-color);
-  width: 300px;
+  width: 230px;
 }
 
 .icon1__inner {
@@ -1719,11 +1719,11 @@ div.rta__autocomplete.str-chat__emojisearch {
   outline: none;
 }
 
-.team-channerl-header_menu-icon {
+.team-channel-header_menu-icon {
   display: none;
 }
 
-.channerl-list__container-toggle {
+.channel-list__container-toggle {
   display: none;
   height: 50px;
   width: 50px;
@@ -1756,7 +1756,7 @@ div.rta__autocomplete.str-chat__emojisearch {
     display: none;
   }
 
-  .team-channerl-header_menu-icon {
+  .team-channel-header_menu-icon {
     display: flex;
   }
 
@@ -1794,7 +1794,7 @@ div.rta__autocomplete.str-chat__emojisearch {
     width: 100%;
   }
 
-  .channerl-list__container-toggle {
+  .channel-list__container-toggle {
     display: flex;
   }
 
@@ -1819,7 +1819,7 @@ div.rta__autocomplete.str-chat__emojisearch {
 }
 
 @media screen and (max-width: 650px) {
-  .channerl-list__container-toggle {
+  .channel-list__container-toggle {
     right: -3%;
   }
 }
@@ -1829,7 +1829,7 @@ div.rta__autocomplete.str-chat__emojisearch {
     width: 150px;
   }
 
-  .channerl-list__container-toggle {
+  .channel-list__container-toggle {
     right: -5%;
   }
 }
@@ -1844,7 +1844,7 @@ div.rta__autocomplete.str-chat__emojisearch {
 .wrapper {
   margin: 15px 10px;
   text-align: left;
-  width: 230px;
+  width: 200px;
 
 }
 
@@ -1866,7 +1866,7 @@ div.rta__autocomplete.str-chat__emojisearch {
 }
 
 .search:hover input {
-  max-width: 235px;
+  max-width: 170px;
 }
 
 .search input {
