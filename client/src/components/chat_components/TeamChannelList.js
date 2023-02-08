@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import { AddChannel } from '../../assets';
 import { Icon } from 'semantic-ui-react';
 
+const styleLink = document.createElement("link");
+styleLink.rel = "stylesheet";
+styleLink.href =
+  "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
+document.head.appendChild(styleLink);
 
 function TeamChannelList({ children, error = false, loading, type, isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer }) {
 
@@ -38,7 +43,7 @@ function TeamChannelList({ children, error = false, loading, type, isCreating, s
     <div className="team-channel-list">
       <div className="team-channel-list__header">
         <div className="team-channel-list__header__icon" onClick={handleToggle}>
-          {isExpanded ? <i class="angle up icon"></i> : <i class="angle down icon"></i>}
+          <Icon enabled name={isExpanded ? 'angle up' : 'angle down'} />
         </div>
         <p className="team-channel-list__header__title">
           {type === 'team' && 'Channels'}
