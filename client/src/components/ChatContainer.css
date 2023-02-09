@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
 :root {
   --primary-color: #E47041;
   --primary-color-alpha: #005fff1a;
 }
+
 
 html,
 body {
@@ -397,6 +400,20 @@ body {
       rgba(0, 0, 0, 0) 89.32%
     ),
     #ffffff;
+  border-radius: 9999px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.33);
+}
+
+.channel-list__sidebar__icon3 {
+  width: 44px;
+  height: 44px;
+  margin: 16px;
+  background: linear-gradient(
+      150.64deg,
+      rgba(0, 0, 0, 0.1) 12.73%,
+      rgba(0, 0, 0, 0) 89.32%
+    ),
+    black;
   border-radius: 9999px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.33);
 }
