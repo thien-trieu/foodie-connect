@@ -28,6 +28,11 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  border: 6px solid;
+  border-color: #E47041;
+  border-radius: 50px;
+  background: #fff;
+  opacity: 0.85;
 }
 
 #container {

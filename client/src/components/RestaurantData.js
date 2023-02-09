@@ -12,8 +12,11 @@ export default function ResturantData() {
   const [resData, setResData] = useState(null);
   const [form, setForm] = useState(initialState);
 
+  //added trim to e.target.value but no .env cant test
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm({
+      ...form, [e.target.name]: e.target.value.trim().replace(/\s+/g, ' ')
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -23,6 +26,9 @@ export default function ResturantData() {
 
     const { location, term } = form;
 
+    // params: {location: trimmedLocation, term: trimmedTerm}
+    // const trimmedLocation = location.trim().replace(/\s/g, '+');
+    // const trimmedTerm = term.trim().replace(/\s/g, '+');
 
     const YAPIKEY = env.YAPIKEY;
 
