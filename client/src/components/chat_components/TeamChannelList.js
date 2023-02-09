@@ -1,12 +1,5 @@
 import React, { useState } from 'react'
 import { AddChannel } from '../../assets';
-// import { Icon } from 'semantic-ui-react';
-
-// const styleLink = document.createElement("link");
-// styleLink.rel = "stylesheet";
-// styleLink.href =
-//   "https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css";
-// document.head.appendChild(styleLink);
 
 function TeamChannelList({ children, error = false, loading, type, isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer }) {
 

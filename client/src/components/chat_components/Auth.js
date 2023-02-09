@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 
-// Importing Components
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
-
 import signinImage from '../../assets/LandingPageResize.jpg';
 import logo from '../../assets/4.png';
 

@@ -987,6 +987,8 @@ body {
 
 .team-channel-list__header {
   padding: 0 16px;
+  display: flex;
+  align-items: center;
 }
 
 .team-channel-list__header svg {
