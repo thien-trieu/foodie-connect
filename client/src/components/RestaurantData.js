@@ -2,8 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import env from "react-dotenv";
 
-import { Card, Icon } from 'semantic-ui-react';
+import { Card, Icon, Image, Rating, Container, Header, Message, Segment } from 'semantic-ui-react';
 
+import CardCarousel from "./CardCarousel";
 
 const initialState = {
   location: '',
@@ -12,7 +13,7 @@ const initialState = {
 
 export default function ResturantData() {
 
-  const [resData, setResData] = useState(null);
+  const [resData, setResData] = useState([]);
   const [form, setForm] = useState(initialState);
 
   //added trim to e.target.value but no .env cant test
@@ -56,15 +57,7 @@ export default function ResturantData() {
           },
         )
         .then(json => {
-          console.log(json.data.businesses)
-          const { name, image_url, url } = json.data.businesses[0];
-          const data = {
-            name: name,
-            image: image_url,
-            url: url
-          };
-          setResData(data);
-          console.log({ items: json.data.businesses });
+          setResData([...json.data.businesses]);
         })
         .catch(err => {
           console.log(err);
@@ -75,20 +68,14 @@ export default function ResturantData() {
   };
 
 
-  const extra = (
-    <a>
-      <Icon name='user' />
-      16 Friends
-    </a>
-  );
 
-
+  console.log(resData);
   return (
     <>
       <div className="auth__form-container">
         <div className="auth__form-container_fields">
           {/* <img src={logo} alt="logo" className="auth__form-logo" /> */}
-          <div className="auth__form-container_fields-content">
+          <div className="auth__form-container_fields-content" style={{ width: "200px" }}>
             <p>Search Restaurants</p>
             <form onSubmit={(handleSubmit)}>
               <div className="auth__form-container_fields-content_input">
@@ -119,24 +106,49 @@ export default function ResturantData() {
         </div>
       </div>
       <div className="restaurant__data-container">
-        <Card
-          image='/images/avatar/large/elliot.jpg'
-          header='Elliot Baker'
-          meta='Friend'
-          description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
-          extra={extra}
-        />
+                
+      <Container style={{ margin: 20 }}>
+          <Segment attached="top">
+            <Header as="h2" content="Hungry?" />
+          </Segment>
+          <Segment attached="bottom">
+            <CardCarousel />
+          </Segment>
 
-        Restuarant data here
-        {resData &&
+        </Container>
 
-          <div className="auth__form-container_image">
-            <h3>{resData.name}</h3>
-            <img src={resData.image} width="100px" />
-            <p><a href={resData.url}>Website</a></p>
-          </div>}
+        {resData && resData.map(res => {
+          return (<div>
+            <Card>
+              <Image src={res.image_url} wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>{res.name}</Card.Header>
+                <Card.Meta>
+                  <span className='date'>{<a href={res.url}>Website</a>}</span>
+                </Card.Meta>
+                <Card.Description>
+                  Description: {res.categories[0].title}
+                </Card.Description>
+                <Card.Description>
+                  Rating: <Rating icon='star' rating={res.rating} maxRating={5} disabled />
+
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+
+                <a>
+                  <Icon name='user' />
+                  {res.display_phone}
+                </a>
+              </Card.Content>
+            </Card>
+          </div>);
+        })}
+
       </div>
     </>
   );
 }
+
+
 

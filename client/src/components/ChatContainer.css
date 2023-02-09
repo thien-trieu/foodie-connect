@@ -1917,3 +1917,7 @@ div.rta__autocomplete.str-chat__emojisearch {
   font-size: 20px;
   pointer-events: none;
 }
+
+.restaurant__data-container {
+  display: flex;
+}
