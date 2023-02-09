@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
 .Game {
   max-width: 860px;
   margin: 40px auto;
+  font-size: 1.5em;
+  font-family: Raleway, sans-serif;
+  text-align: center;
 }
+
 button {
-  background: none;
+  background: #E47041;
   border: 2px solid #fff;
   padding: 6px 12px;
   border-radius: 4px;
@@ -13,8 +19,8 @@ button {
   font-size: 1em;
 }
 button:hover {
-  background: #c23866;
-  color: #fff;
+  background: #fff;
+  color: #E47041;
 }
 
 .card-grid {
