@@ -72,8 +72,7 @@ export default function ResturantData() {
 
 
   return (
-    <div>
-      <div>
+    <>
         <div className="auth__form-container">
           <div className="auth__form-container_fields">
             {/* <img src={logo} alt="logo" className="auth__form-logo" /> */}
@@ -104,19 +103,19 @@ export default function ResturantData() {
                   <button>Search</button>
                 </div>
               </form>
-              <div className="auth__form-container_fields-account">
-
-              </div>
-            </div>
           </div>
         </div>
       </div>
-      {resData &&
-        <div className="auth__form-container_image">
-          <h3>{resData.name}</h3>
-          <img src={resData.image} width="100px" />
-          <p><a href={resData.url}>Website</a></p>
-        </div>}
-    </div>
+      <div className="restaurant__data-container"> 
+       Restuarant data here
+      </div>
+    </>
   );
 }
+
+// {resData &&
+//   <div className="auth__form-container_image">
+//     <h3>{resData.name}</h3>
+//     <img src={resData.image} width="100px" />
+//     <p><a href={resData.url}>Website</a></p>
+//   </div>}
