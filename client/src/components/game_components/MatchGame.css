@@ -1,40 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 
 .app__wrapper_game {
+
   display: flex;
   flex: 1;
-  background-image: url("https://img.freepik.com/free-vector/cute-food-pattern-design-yellow-background_8830-484.jpg?w=2000");
+  /* background-image: url("https://img.freepik.com/free-vector/cute-food-pattern-design-yellow-background_8830-484.jpg?w=2000"); */
+  background: url('../../../public/img/gameBG.png');
   background-size: cover;
   background-position: center;
   max-width: 100%;
   /* height: 800px; */
-  max-height: 100%;
+  /* max-height: 100%; */
   /* border-radius: 16px; */
   box-shadow: rgba(0, 0, 0, 0.33) 0px 1px 4px 0px;
 }
 
 .Game {
-  max-width: 1080px;
+  max-width: 50%;
   margin: 40px auto;
-  font-size: 1.5em;
-  font-family: Raleway, sans-serif;
+  font-size: 25px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
   text-align: center;
-  
+}
+
+.New-game {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 6px solid;
+  border-color: #E47041;
+  border-radius: 50px;
+  background: #fff;
+  opacity: 0.85;
+}
+
+#container {
+  padding: 10px;
 }
 
 button {
-  background: #E47041;
-  border: 2px solid #fff;
-  padding: 6px 12px;
-  border-radius: 4px;
-  color: #fff;
-  font-weight: bold;
+  padding: 10px;
+  height: 70px;
+  width: 200px;
   cursor: pointer;
-  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
 }
-button:hover {
-  background: #fff;
-  color: #E47041;
+
+#shiny {
+  border-radius: 30px;
+  border: 2px solid #fff;
+  background: #E47041;
+  position: relative;
+  overflow: hidden;
+}
+
+#shiny::before {
+  content: "";
+  width: 15rem;
+  height: 1.5rem;
+  position: absolute;
+  top: -70%;
+  left: -60%;
+  background-color: #f2e8cf;
+  transform: rotateZ(115deg);
+  transition: left 800ms ease, transform 800ms ease;
+}
+
+#shiny:hover:before {
+  left: 70%;
+}
+
+#shiny:active {
+  transform: scale(0.98);
 }
 
 .card-grid {
@@ -43,3 +83,24 @@ button:hover {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
 }
+
+@media screen and (max-width: 1600px) {
+  .Game {
+    max-width: 60%;
+  } 
+}
+
+@media screen and (max-width: 1366px) {
+  .Game {
+    max-width: 70%;
+  } 
+}
+
+@media screen and (max-width: 962px) {
+  .Game {
+    max-width: 90%;
+  }
+}
+
+
+

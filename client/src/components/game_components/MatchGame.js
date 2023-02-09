@@ -82,9 +82,10 @@ function MatchGame() {
   return (
     <div className="app__wrapper_game">
       <div className="Game">
-        <h1>Foodie Connect</h1>
-          <button onClick={shuffleCards}>New Game</button>
- 
+        <div className="New-game" id="container">
+          <button id="shiny" onClick={shuffleCards}>New Game</button>
+          <p>Turns: {turns}</p>
+        </div>
         <div className="card-grid">
           {cards.map(card => (
               <SingleCard
@@ -96,7 +97,6 @@ function MatchGame() {
                 />
             ))}
         </div>
-        <p>Turns: {turns}</p>
       </div>
     </div>
   );

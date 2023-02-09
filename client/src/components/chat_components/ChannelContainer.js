@@ -27,7 +27,7 @@ function ChannelContainer({ isCreating, setIsCreating, isEditing, setIsEditing, 
   const EmptyState = () => (
     <div className="channel-empty__container">
       <p className="channel-empty__first">Start chatting now!</p>
-      <p className="channel-empty__second">Send an emojis or video links too!</p>
+      <p className="channel-empty__second">Send emojis and video links too!</p>
     </div>
   )
 
