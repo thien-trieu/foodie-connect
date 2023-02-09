@@ -80,22 +80,24 @@ function MatchGame() {
   }, [])
 
   return (
-    <div className="Game">
-     <h1>Foodie Connect</h1>
-     <button onClick={shuffleCards}>New Game</button>
+    <div className="app__wrapper_game">
+      <div className="Game">
+        <h1>Foodie Connect</h1>
+          <button onClick={shuffleCards}>New Game</button>
  
-     <div className="card-grid">
-      {cards.map(card => (
-        <SingleCard
-           key={card.id} 
-           card={card}
-           handleChoice={handleChoice}
-           flipped={card === choiceOne || card === choiceTwo || card.matched}
-           disabled={disabled}
-        />
-      ))}
-     </div>
-     <p>Turns: {turns}</p>
+        <div className="card-grid">
+          {cards.map(card => (
+              <SingleCard
+                  key={card.id} 
+                  card={card}
+                  handleChoice={handleChoice}
+                  flipped={card === choiceOne || card === choiceTwo || card.matched}
+                  disabled={disabled}
+                />
+            ))}
+        </div>
+        <p>Turns: {turns}</p>
+      </div>
     </div>
   );
 }
