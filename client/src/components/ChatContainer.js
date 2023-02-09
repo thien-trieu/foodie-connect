@@ -5,7 +5,7 @@ import Cookies from 'universal-cookie';
 
 // Components
 import ResturantData from './RestaurantData';
-import MatchGame from './MatchGame';
+import MatchGame from './game_components/MatchGame';
 import { ChannelListContainer, ChannelContainer, Auth } from './chat_components';
 
 // Side Bar icons
@@ -23,7 +23,7 @@ const cookies = new Cookies()
 // getting the tokens
 const authToken = cookies.get("token");
 
-const client = StreamChat.getInstance('vqe4b3mhs45x');
+const client = StreamChat.getInstance('nucgcb4znxss');
 
 // if auth token exist we create a User with all the cookies we got.
 if (authToken) {
