@@ -45,6 +45,8 @@
     ]
   },
   "react-dotenv": {
-    "whitelist": ["YAPIKEY"]
+    "whitelist": [
+      "YAPIKEY"
+    ]
   }
 }
