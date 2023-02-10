@@ -37,13 +37,25 @@ if (authToken) {
 }
 
 export default function App() {
+  const userID = cookies.get('userId')
+
+  // const updateUser = async () =>{
+  // const update = {
+  //   id: cookies.get('userId'), 
+  //   set: { 
+  //     fullName: "Kim Trieu", 
+  //     image: "https://iili.io/HEEFBJn.jpg", 
+  //   },  
+  // } 
+  // await client.partialUpdateUser(update)
+  // }
 
   const [resData, setResData] = useState([]);
   const [currentFeature, setCurrentFeature] = useState('chat');
 
   useEffect(() => {
     fetchRestaurants("Vancouver", "Burgers", setResData);
-
+    // updateUser()
   }, []);
 
   const toggleFeature = (feature) => {
@@ -72,7 +84,7 @@ export default function App() {
   //edit from channelcontainer will be set in channellist after the edit but isEditing and createType only available in channel container
   return (
     <div className="app__wrapper">
-      <SideBar setCurrentFeature={setCurrentFeature} currentFeature={currentFeature} toggleFeature={toggleFeature} logout={logout} />
+      <SideBar client={client} userID={userID} setCurrentFeature={setCurrentFeature} currentFeature={currentFeature} toggleFeature={toggleFeature} logout={logout} />
       {currentFeature === 'restuarant-search' && <ResturantData resData={resData} setResData={setResData} fetchRestaurants={fetchRestaurants} />}
       {currentFeature === 'match-game' && <MatchGame />}
       {currentFeature === 'profile' && <Profile />}

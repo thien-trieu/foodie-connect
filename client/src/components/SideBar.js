@@ -1,5 +1,5 @@
 import { Button, Header, Image, Modal } from 'semantic-ui-react';
-import React from 'react'
+import React, { useEffect } from 'react'
 // Side Bar icons
 import logoIcon from '../assets/3.png';
 import LogoutIcon from '../assets/Logout.png';
@@ -7,7 +7,26 @@ import restaurantIcon from '../assets/restaurantIcon.png';
 import matchIcon from '../assets/matchgameicon.png';
 import profileIcon from '../assets/2.png';
 
-export default function SideBar ({ logout, setCurrentFeature }) {
+import { Avatar, useChatContext, useChannelStateContext } from 'stream-chat-react';
+
+const updateUser = async (userID, fullName, URL, client) =>{
+  const update = {
+    id: userID, 
+    set: { 
+      fullName: fullName, 
+      image: URL, 
+    },  
+  } 
+  await client.partialUpdateUser(update)
+}
+
+export default function SideBar ({ logout, setCurrentFeature, client, userID }) {
+  // const { channel, watcher_count } = useChannelStateContext();
+
+
+  useEffect(() => {
+    updateUser(userID, "Jackie Chan", "https://iili.io/HEE3OV2.jpg", client)
+  }, [])
 
   const [open, setOpen] = React.useState(false);
 
@@ -30,6 +49,8 @@ export default function SideBar ({ logout, setCurrentFeature }) {
     setCurrentFeature('profile');
   };
 
+  // const member = Object.values(channel.state.members).filter(({ user }) => user.id === client.userID);
+  console.log(client)
   return (
     <div className="channel-list__sidebar">
       <div className="channel-list__sidebar__icon1">
@@ -61,6 +82,7 @@ export default function SideBar ({ logout, setCurrentFeature }) {
         }>
         <Modal.Header>Select a Photo</Modal.Header>
         <Modal.Content image>
+          <Avatar />
           <Image size='medium' src='https://react.semantic-ui.com/images/avatar/large/rachel.png' wrapped />
           <Modal.Description>
             <Header>Default Profile Image</Header>
