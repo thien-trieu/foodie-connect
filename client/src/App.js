@@ -10,20 +10,16 @@ import { fetchRestaurants } from './helper/fetchRestaurants';
 import ResturantData from './components/RestaurantData';
 import MatchGame from './components/game_components/MatchGame';
 import { ChannelListContainer, ChannelContainer } from './components/chat_components';
-import Auth from './components/Auth.js'
-
-// Side Bar icons
-import logoIcon from './assets/3.png'
-import LogoutIcon from './assets/Logout.png'
-import restaurantIcon from './assets/restaurantIcon.png'
-import matchIcon from './assets/matchgameicon.png'
+import SideBar from './components/SideBar';
+import Auth from './components/Auth.js';
+import Profile from './components/Profile';
 
 import 'stream-chat-react/dist/css/index.css';
 import './App.css';
 
 // Instead of setting the values here, we are going to get them
 // to see if a user was logged in from Auth component
-const cookies = new Cookies()
+const cookies = new Cookies();
 // getting the tokens
 const authToken = cookies.get("token");
 
@@ -37,63 +33,22 @@ if (authToken) {
     fullName: cookies.get('fullName'),
     image: cookies.get('avatarURL'),
     hashedPassword: cookies.get('hashedPassword'),
-    phoneNumber: cookies.get('phoneNumber'),
-  }, authToken)
+  }, authToken);
 }
 
+export default function App() {
 
-const SideBar = ({ logout, setCurrentFeature }) => {
-
-const handleRestaurantClick = (e) =>{
-  e.preventDefault()
-  setCurrentFeature('restuarant-search')
-}
-const handleChatClick = (e) =>{
-  e.preventDefault()
-  setCurrentFeature('chat')
-}
-
-const handleMatchGameClick = (e) =>{
-  e.preventDefault()
-  setCurrentFeature('match-game')
-}
-return (
-  <div className="channel-list__sidebar">
-    <div className="channel-list__sidebar__icon1">
-      <div className="icon1__inner">
-        <img src={logoIcon} alt="Hospital" width="30" onClick={handleChatClick}/>
-      </div>
-    </div>
-    <div className="channel-list__sidebar__icon1">
-      <div className="icon1__inner">
-        <img src={restaurantIcon} alt="Resturant" width="30" onClick={handleRestaurantClick}/>
-      </div>
-    </div>
-    <div className="channel-list__sidebar__icon1">
-      <div className="icon1__inner">
-        <img src={matchIcon} alt="Resturant" width="30" onClick={handleMatchGameClick} style={{'background-color': 'black'}}/>
-      </div>
-    </div>
-    <div className="channel-list__sidebar__icon2">
-      <div className="icon1__inner" onClick={logout}>
-        <img src={LogoutIcon} alt="Logout" width="30" />
-      </div>
-    </div>
-  </div>
-)};
-
-export default function App() { 
   const [resData, setResData] = useState([]);
   const [currentFeature, setCurrentFeature] = useState('chat');
 
-  useEffect(()=>{
-    fetchRestaurants("Vancouver", "Burgers", setResData)
+  useEffect(() => {
+    fetchRestaurants("Vancouver", "Burgers", setResData);
 
-  }, [])
+  }, []);
 
   const toggleFeature = (feature) => {
     setCurrentFeature(feature);
-  }
+  };
 
   const logout = () => {
     cookies.remove("token");
@@ -102,27 +57,26 @@ export default function App() {
     cookies.remove('fullName');
     cookies.remove('avatarURL');
     cookies.remove('hashedPassword');
-    cookies.remove('phoneNumber');
 
-      window.location.reload();
-    }
-
+    window.location.reload();
+  };
 
   //set states for createType(input-field), create, edit default to false
   //then pass states into ChannelListContainer and ChannelContainer
   const [createType, setCreateType] = useState('');
   const [isCreating, setIsCreating] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  if (!authToken) return <Auth />
+  if (!authToken) return <Auth />;
 
   //render channellist and channels
   //edit from channelcontainer will be set in channellist after the edit but isEditing and createType only available in channel container
   return (
     <div className="app__wrapper">
       <SideBar setCurrentFeature={setCurrentFeature} currentFeature={currentFeature} toggleFeature={toggleFeature} logout={logout} />
-      { currentFeature === 'restuarant-search' && <ResturantData resData={resData} setResData={setResData} fetchRestaurants={fetchRestaurants} />}
-      { currentFeature === 'match-game' && <MatchGame />}
-      { currentFeature === 'chat' && <Chat client={client} theme="team light">
+      {currentFeature === 'restuarant-search' && <ResturantData resData={resData} setResData={setResData} fetchRestaurants={fetchRestaurants} />}
+      {currentFeature === 'match-game' && <MatchGame />}
+      {currentFeature === 'profile' && <Profile />}
+      {currentFeature === 'chat' && <Chat client={client} theme="team light">
         <ChannelListContainer
           isCreating={isCreating}
           setIsCreating={setIsCreating}
@@ -138,6 +92,6 @@ export default function App() {
         />
       </Chat>}
     </div>
-  )
+  );
 }
 

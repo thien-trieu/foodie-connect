@@ -12,7 +12,6 @@ const initialState = {
   username: '',
   password: '',
   confirmPassword: '',
-  phoneNumber: '',
   avatarURL: '',
 };
 
@@ -29,13 +28,13 @@ function Auth() {
     e.preventDefault();
 
     console.log(form);
-    const { username, password, phoneNumber, avatarURL } = form;
+    const { username, password, avatarURL } = form;
 
     const URL = 'http://localhost:3001/auth';
 
     // await will send data to backend and we will get 'data' back on the front end ( Destructing Data we get back :{ token, userId, hashedPassword, fullName })
     const { data: { token, userId, hashedPassword, fullName } } = await axios.post(`${URL}/${isSignup ? 'signup' : 'login'}`, {
-      username, password, fullName: form.fullName, phoneNumber, avatarURL, // data we are passing to the back end
+      username, password, fullName: form.fullName, avatarURL, // data we are passing to the back end
     });
     // Use the data we get back from the backend to set cookies
     cookies.set('token', token);
@@ -44,7 +43,6 @@ function Auth() {
     cookies.set('userId', userId);
 
     if (isSignup) {
-      cookies.set('phoneNumber', phoneNumber);
       cookies.set('avatarURL', avatarURL);
       cookies.set('hashedPassword', hashedPassword);
     }
@@ -89,18 +87,6 @@ function Auth() {
                 required
               />
             </div>
-            {isSignup && (
-              <div className="auth__form-container_fields-content_input">
-                <label htmlFor="phoneNumber">Phone Number</label>
-                <input
-                  name="phoneNumber"
-                  type="text"
-                  placeholder="Phone Number"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            )}
             {isSignup && (
               <div className="auth__form-container_fields-content_input">
                 <label htmlFor="avatarURL">Avatar URL</label>
