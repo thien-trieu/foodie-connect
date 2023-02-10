@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 
-import signinImage from '../../assets/LandingPageResize.jpg';
-import logo from '../../assets/4.png';
+import signinImage from '../assets/LandingPageResize.jpg';
+import logo from '../assets/4.png';
 
 const cookies = new Cookies();
 

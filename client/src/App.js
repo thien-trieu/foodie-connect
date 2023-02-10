@@ -9,7 +9,8 @@ import { fetchRestaurants } from './helper/fetchRestaurants';
 // Components
 import ResturantData from './components/RestaurantData';
 import MatchGame from './components/game_components/MatchGame';
-import { ChannelListContainer, ChannelContainer, Auth } from './components/chat_components';
+import { ChannelListContainer, ChannelContainer } from './components/chat_components';
+import Auth from './components/Auth.js'
 
 // Side Bar icons
 import logoIcon from './assets/3.png'
