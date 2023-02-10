@@ -1,6 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import env from "react-dotenv"
+import env from "react-dotenv";
+
+import { Card, Icon, Image, Rating, Container, Header, Message, Segment } from 'semantic-ui-react';
+
+import CardCarousel from "./CardCarousel";
 
 const initialState = {
   location: '',
@@ -9,7 +13,7 @@ const initialState = {
 
 export default function ResturantData() {
 
-  const [resData, setResData] = useState(null);
+  const [resData, setResData] = useState([]);
   const [form, setForm] = useState(initialState);
 
   //added trim to e.target.value but no .env cant test
@@ -26,11 +30,11 @@ export default function ResturantData() {
 
     const { location, term } = form;
 
-    // params: {location: trimmedLocation, term: trimmedTerm}
-    // const trimmedLocation = location.trim().replace(/\s/g, '+');
-    // const trimmedTerm = term.trim().replace(/\s/g, '+');
 
-    const YAPIKEY = env.YAPIKEY;
+    const trimmedLocation = location.trim().replace(/\s/g, '+');
+    const trimmedTerm = term.trim().replace(/\s/g, '+');
+
+    const YAPIKEY = window.env.YAPIKEY;
 
     const fetchResturants = async () => {
       const data = await axios
@@ -45,20 +49,15 @@ export default function ResturantData() {
               "Access-Control-Allow-Origin": 'http://localhost:3000'
             },
             params: {
-              location: location,
-              term: term,
+              location: trimmedLocation,
+              term: trimmedTerm,
+              sort_by: 'best_match',
+              limit: '9'
             },
           },
         )
         .then(json => {
-          const { name, image_url, url } = json.data.businesses[0];
-          const data = {
-            name: name,
-            image: image_url,
-            url: url
-          };
-          setResData(data);
-          console.log({ items: json.data.businesses });
+          setResData([...json.data.businesses]);
         })
         .catch(err => {
           console.log(err);
@@ -68,54 +67,54 @@ export default function ResturantData() {
 
   };
 
-
-
-
   return (
     <>
-        <div className="auth__form-container">
-          <div className="auth__form-container_fields">
-            {/* <img src={logo} alt="logo" className="auth__form-logo" /> */}
-            <div className="auth__form-container_fields-content">
-              <p>Search Restaurants</p>
-              <form onSubmit={(handleSubmit)}>
-                <div className="auth__form-container_fields-content_input">
-                  <label htmlFor="location">Location</label>
-                  <input
-                    name="location"
-                    type="text"
-                    placeholder="location"
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="auth__form-container_fields-content_input">
-                  <label htmlFor="term">Search Term</label>
-                  <input
-                    name="term"
-                    type="text"
-                    placeholder="Search Term"
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="auth__form-container_fields-content_button">
-                  <button>Search</button>
-                </div>
-              </form>
+      <div className="auth__form-container">
+        <div className="auth__form-container_fields">
+          <div className="auth__form-container_fields-content" style={{ width: "200px" }}>
+            <p>Search Restaurants</p>
+            <form onSubmit={(handleSubmit)}>
+              <div className="auth__form-container_fields-content_input">
+                <label htmlFor="location">Location</label>
+                <input
+                  name="location"
+                  type="text"
+                  placeholder="location"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="auth__form-container_fields-content_input">
+                <label htmlFor="term">Search Term</label>
+                <input
+                  name="term"
+                  type="text"
+                  placeholder="Search Term"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="auth__form-container_fields-content_button">
+                <button>Search</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-      <div className="restaurant__data-container"> 
-       Restuarant data here
+      <div className="restaurant__data-container">
+                
+        <Container style={{ textAlign: "center", width: "auto" }}>
+          <Segment attached="top" style={{ border: "none" }}>
+            <Header as="h2" content="Hungry?" />
+          </Segment>
+          <Segment attached="bottom" style={{ border: "none" }}>
+            <CardCarousel resData={resData}/>
+          </Segment >
+        </Container>
       </div>
     </>
   );
 }
 
-// {resData &&
-//   <div className="auth__form-container_image">
-//     <h3>{resData.name}</h3>
-//     <img src={resData.image} width="100px" />
-//     <p><a href={resData.url}>Website</a></p>
-//   </div>}
+
+

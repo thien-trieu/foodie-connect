@@ -18,6 +18,11 @@ body {
   height: 100%;
 }
 
+.card__content {
+ width:200px;
+}
+
+
 .auth__form-container {
   min-height: 100vh;
   display: flex;
@@ -987,6 +992,9 @@ body {
 
 .team-channel-list__header {
   padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .team-channel-list__header svg {
@@ -1914,4 +1922,18 @@ div.rta__autocomplete.str-chat__emojisearch {
   border-radius: inherit;
   font-size: 20px;
   pointer-events: none;
+}
+
+
+.restaurant__data-container {
+  display: flex;
+  margin-top: 45px;
+  width: 100%;
+
+}
+
+.ui[class*="center aligned"].container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
