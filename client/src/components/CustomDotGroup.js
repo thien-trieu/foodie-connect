@@ -3,18 +3,22 @@ import { Dot } from "pure-react-carousel";
 import React from "react";
 import { Button, Container } from "semantic-ui-react";
 
-const CustomDotGroup = ({ slides, size }) => (
+const CustomDotGroup = ({ slides, size }) => {
+  console.log(size)
+  return (
   <Container textAlign="center">
+    <div className="customDotGroup__button">
     <Button.Group size={size}>
       {[...Array(slides).keys()].map(slide => (
-        <Button as={Dot} key={slide} icon="circle" slide={slide} />
+        <Button size={size} as={Dot} key={slide} icon="circle" slide={slide} />
       ))}
     </Button.Group>
+    </div>
   </Container>
-);
+)};
 
 CustomDotGroup.defaultProps = {
-  size: "mini"
+  size: "tiny"
 };
 
 CustomDotGroup.propTypes = {

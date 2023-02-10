@@ -107,14 +107,13 @@ export default function ResturantData() {
       </div>
       <div className="restaurant__data-container">
                 
-      <Container style={{ margin: 20 }}>
+        <Container style={{ margin: 20 }}>
           <Segment attached="top">
             <Header as="h2" content="Hungry?" />
           </Segment>
           <Segment attached="bottom">
-            <CardCarousel />
+            <CardCarousel resData={resData}/>
           </Segment>
-
         </Container>
 
         {resData && resData.map(res => {

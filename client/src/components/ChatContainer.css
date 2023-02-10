@@ -18,6 +18,16 @@ body {
   height: 100%;
 }
 
+.card__content {
+ width:200px;
+}
+/* .card__image{
+  display: block;
+  max-width:230px;
+  max-height:95px;
+  width: auto;
+  height: auto;
+} */
 .auth__form-container {
   min-height: 100vh;
   display: flex;
