@@ -21,13 +21,8 @@ body {
 .card__content {
  width:200px;
 }
-/* .card__image{
-  display: block;
-  max-width:230px;
-  max-height:95px;
-  width: auto;
-  height: auto;
-} */
+
+
 .auth__form-container {
   min-height: 100vh;
   display: flex;
@@ -998,6 +993,7 @@ body {
 .team-channel-list__header {
   padding: 0 16px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -1928,6 +1924,16 @@ div.rta__autocomplete.str-chat__emojisearch {
   pointer-events: none;
 }
 
+
 .restaurant__data-container {
   display: flex;
+  margin-top: 45px;
+  width: 100%;
+
+}
+
+.ui[class*="center aligned"].container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }

@@ -8,37 +8,51 @@ import CustomDotGroup from "../components/CustomDotGroup";
 
 const CardCarousel = ({resData}) => {
   console.log(resData)
-  return (
-  <CarouselProvider
-    naturalSlideWidth={1}
-    naturalSlideHeight={1.25}
-    totalSlides={resData.length}
-    style={{ width: "300px" }}
-  >
-    <Slider>
-      <CustomCardSlide
-        image="https://place-hold.it/800x800&text=Matthew&fontsize=32"
-        index={0}
-        header="Matthew House"
-        meta="Friend"
-      />
-    
-      <CustomCardSlide
-        header="Elliot Baker"
-        image="https://place-hold.it/800x800&text=Elliot&fontsize=32"
-        index={1}
-        meta="Friend"
-      />
-      <CustomCardSlide
-        header="Steve Sanders"
-        image="https://place-hold.it/800x800&text=Steve&fontsize=32"
-        index={2}
-        meta="Friend"
-      />
-    </Slider>
 
-    <CustomDotGroup slides={resData.length} />
-  </CarouselProvider>
-)};
+  return (<div>
+    <CarouselProvider
+      naturalSlideWidth={1}
+      naturalSlideHeight={2}
+      totalSlides={resData.length}
+      style={{ width: "auto" }}
+      visibleSlides={3}
+    >
+<Slider>
+  {resData && resData.map((res, index) => {
+    const {name, image_url, categories, rating, display_phone, url  } = res
+    return (<>
+      
+        <CustomCardSlide
+          res={res}
+          key={index}
+          image={image_url}
+          index={index}
+          header={name}
+          meta={display_phone}
+        />
+      
+        {/* <CustomCardSlide
+          header="Elliot Baker"
+          image="https://place-hold.it/800x800&text=Elliot&fontsize=32"
+          index={1}
+          meta="Friend"
+        />
+        <CustomCardSlide
+          header="Steve Sanders"
+          image="https://place-hold.it/800x800&text=Steve&fontsize=32"
+          index={2}
+          meta="Friend"
+        /> */}
+     
+  
+      
+</>
+    )
+  })}
+   </Slider>
+  <CustomDotGroup slides={resData.length} />
+</CarouselProvider>
+</div>)
+};
 
 export default CardCarousel;

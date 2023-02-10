@@ -52,7 +52,7 @@ export default function ResturantData() {
               location: trimmedLocation,
               term: trimmedTerm,
               sort_by: 'best_match',
-              limit: '10'
+              limit: '9'
             },
           },
         )
@@ -67,14 +67,10 @@ export default function ResturantData() {
 
   };
 
-
-
-  console.log(resData);
   return (
     <>
       <div className="auth__form-container">
         <div className="auth__form-container_fields">
-          {/* <img src={logo} alt="logo" className="auth__form-logo" /> */}
           <div className="auth__form-container_fields-content" style={{ width: "200px" }}>
             <p>Search Restaurants</p>
             <form onSubmit={(handleSubmit)}>
@@ -107,43 +103,14 @@ export default function ResturantData() {
       </div>
       <div className="restaurant__data-container">
                 
-        <Container style={{ margin: 20 }}>
-          <Segment attached="top">
+        <Container style={{ textAlign: "center", width: "auto" }}>
+          <Segment attached="top" style={{ border: "none" }}>
             <Header as="h2" content="Hungry?" />
           </Segment>
-          <Segment attached="bottom">
+          <Segment attached="bottom" style={{ border: "none" }}>
             <CardCarousel resData={resData}/>
-          </Segment>
+          </Segment >
         </Container>
-
-        {resData && resData.map(res => {
-          return (<div>
-            <Card>
-              <Image src={res.image_url} wrapped ui={false} />
-              <Card.Content>
-                <Card.Header>{res.name}</Card.Header>
-                <Card.Meta>
-                  <span className='date'>{<a href={res.url}>Website</a>}</span>
-                </Card.Meta>
-                <Card.Description>
-                  Description: {res.categories[0].title}
-                </Card.Description>
-                <Card.Description>
-                  Rating: <Rating icon='star' rating={res.rating} maxRating={5} disabled />
-
-                </Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-
-                <a>
-                  <Icon name='user' />
-                  {res.display_phone}
-                </a>
-              </Card.Content>
-            </Card>
-          </div>);
-        })}
-
       </div>
     </>
   );
