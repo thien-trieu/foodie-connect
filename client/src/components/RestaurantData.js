@@ -1,6 +1,4 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import env from "react-dotenv";
+import React, { useState } from 'react';
 
 import { Container, Header,  Segment } from 'semantic-ui-react';
 
@@ -11,40 +9,9 @@ const initialState = {
   term: '',
 };
 
-export default function ResturantData() {
+export default function ResturantData({resData, setResData, fetchRestaurants}) {
 
-  const [resData, setResData] = useState([]);
   const [form, setForm] = useState(initialState);
-
-  const fetchResturants = async (location, term) => {
-    const YAPIKEY = window.env.YAPIKEY;
-
-    const data = await axios
-      .get(
-        `${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?`,
-        {
-          headers: {
-            Authorization: `Bearer ${YAPIKEY}`,
-            Accept: 'application/json',
-            "Content-Type": 'application/json',
-            "Access-Control-Allow-Headers": '*',
-            "Access-Control-Allow-Origin": 'http://localhost:3000'
-          },
-          params: {
-            location: location,
-            term: term,
-            sort_by: 'best_match',
-            limit: '9'
-          },
-        },
-      )
-      .then(json => {
-        setResData([...json.data.businesses]);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
 
   //added trim to e.target.value but no .env cant test
   const handleChange = (e) => {
@@ -58,18 +25,9 @@ export default function ResturantData() {
 
     const { location, term } = form;
 
-    const trimmedLocation = location.trim().replace(/\s/g, '+');
-    const trimmedTerm = term.trim().replace(/\s/g, '+');
-
-    fetchResturants(trimmedLocation, trimmedTerm);
+    fetchRestaurants(location, term, setResData);
 
   };
-
-  useEffect(()=>{
-    fetchResturants("Vancouver", "Burgers")
-    
-  }, [])
-
 
   return (
     <>

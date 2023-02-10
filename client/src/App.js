@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StreamChat } from 'stream-chat';
 import { Chat } from 'stream-chat-react';
 import Cookies from 'universal-cookie';
+
+// Helper function
+import { fetchRestaurants } from './helper/fetchRestaurants';
 
 // Components
 import ResturantData from './components/RestaurantData';
@@ -79,8 +82,13 @@ return (
 )};
 
 export default function App() { 
-
+  const [resData, setResData] = useState([]);
   const [currentFeature, setCurrentFeature] = useState('chat');
+
+  useEffect(()=>{
+    fetchRestaurants("Vancouver", "Burgers", setResData)
+
+  }, [])
 
   const toggleFeature = (feature) => {
     setCurrentFeature(feature);
@@ -111,7 +119,7 @@ export default function App() {
   return (
     <div className="app__wrapper">
       <SideBar setCurrentFeature={setCurrentFeature} currentFeature={currentFeature} toggleFeature={toggleFeature} logout={logout} />
-      { currentFeature === 'restuarant-search' && <ResturantData />}
+      { currentFeature === 'restuarant-search' && <ResturantData resData={resData} setResData={setResData} fetchRestaurants={fetchRestaurants} />}
       { currentFeature === 'match-game' && <MatchGame />}
       { currentFeature === 'chat' && <Chat client={client} theme="team light">
         <ChannelListContainer
