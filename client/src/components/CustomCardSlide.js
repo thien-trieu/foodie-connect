@@ -3,7 +3,7 @@ import { Slide } from "pure-react-carousel";
 import React from "react";
 import { Card, Icon, Rating, } from 'semantic-ui-react';
 
-const CustomCardSlide = ({ index, res, ...cardProps }) => (
+const CustomCardSlide = ({ index, res }) => (
   <Slide index={index}>
     <div style={{ padding: 10 }}>
         <Card fluid>

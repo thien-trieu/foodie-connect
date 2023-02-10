@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import env from "react-dotenv";
 
-import { Card, Icon, Image, Rating, Container, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Header,  Segment } from 'semantic-ui-react';
 
 import CardCarousel from "./CardCarousel";
 

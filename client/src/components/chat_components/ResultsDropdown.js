@@ -57,7 +57,7 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleContainer
   );
 };
 
-const ResultsDropdown = ({ publicChannels, teamChannels, directChannels, focusedId, loading, setChannel, setToggleContainer }) => {
+const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, setChannel, setToggleContainer }) => {
 
   return (
     <div className='channel-search__results'>
