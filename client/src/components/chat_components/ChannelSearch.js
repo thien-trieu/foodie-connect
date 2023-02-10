@@ -13,31 +13,18 @@ const ChannelSearch = ({ setToggleContainer }) => {
     const [directChannels, setDirectChannels] = useState([])
 
 
-  const [publicChannels, setPublicChannels] = useState([])
+
 
 
     useEffect(() => {
         if(!query) {
             setTeamChannels([]);
             setDirectChannels([]);
-          setPublicChannels([]);
         }
     }, [query])
 
     const getChannels = async (text) => {
         try {
-          const publicFilter = { type: 'public' };
-          const sort = [{ last_message_at: -1 }];
-
-          const publicChannelsResult = await client.queryChannels(publicFilter, sort, {
-            watch: true, // this is the default
-            state: true,
-          });
-
-          publicChannels.map((channel) => {
-            console.log(channel.data.name, channel.cid)
-          })
-
 
             const channelResponse = client.queryChannels({
                 type: 'team', 
@@ -50,7 +37,7 @@ const ChannelSearch = ({ setToggleContainer }) => {
             })
 
             const [channels, { users }] = await Promise.all([channelResponse, userResponse]);
-          if (publicChannelsResult.length) setPublicChannels(publicChannelsResult);
+          // if (publicChannelsResult.length) setPublicChannels(publicChannelsResult);
             if(channels.length) setTeamChannels(channels);
             if(users.length) setDirectChannels(users);
         } catch (error) {
@@ -101,7 +88,6 @@ const ChannelSearch = ({ setToggleContainer }) => {
           </div>
             { query && (
             <ResultsDropdown 
-              publicChannels={publicChannels}
                 teamChannels={teamChannels}
                 directChannels={directChannels}
                 loading={loading}
@@ -117,34 +103,3 @@ const ChannelSearch = ({ setToggleContainer }) => {
     
     export default ChannelSearch
     
-
-  //   return (
-  //   <div className="channel-search__container">
-  //       <div className="channel-search__input__wrapper">
-  //           <div className="channel-serach__input__icon">
-  //               <SearchIcon />
-  //           </div>
-  //           <input 
-  //               className="channel-search__input__text" 
-  //               placeholder="Search" 
-  //               type="text" 
-  //               value={query}  
-  //               onChange={onSearch}
-  //           />
-  //       </div>
-  //       { query && (
-  //           <ResultsDropdown 
-  //               teamChannels={teamChannels}
-  //               directChannels={directChannels}
-  //               loading={loading}
-  //               setChannel={setChannel}
-  //               setQuery={setQuery}
-  //               setToggleContainer={setToggleContainer}
-  //           />
-  //       )}
-  //   </div>
-
-  //   );
-  // }
-  
-  // export default ChannelSearch
