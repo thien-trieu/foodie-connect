@@ -25,37 +25,27 @@ const authToken = cookies.get("token");
 
 const client = StreamChat.getInstance('nucgcb4znxss');
 
+const user = {
+  id: cookies.get('userId'),
+  name: cookies.get('username'),
+  fullName: cookies.get('fullName'),
+  image: cookies.get('avatarURL'),
+  hashedPassword: cookies.get('hashedPassword')
+}
 // if auth token exist we create a User with all the cookies we got.
 if (authToken) {
-  client.connectUser({
-    id: cookies.get('userId'),
-    name: cookies.get('username'),
-    fullName: cookies.get('fullName'),
-    image: cookies.get('avatarURL'),
-    hashedPassword: cookies.get('hashedPassword'),
-  }, authToken);
+  client.connectUser({...user}, authToken);
 }
 
 export default function App() {
-  const userID = cookies.get('userId')
-
-  // const updateUser = async () =>{
-  // const update = {
-  //   id: cookies.get('userId'), 
-  //   set: { 
-  //     fullName: "Kim Trieu", 
-  //     image: "https://iili.io/HEEFBJn.jpg", 
-  //   },  
-  // } 
-  // await client.partialUpdateUser(update)
-  // }
 
   const [resData, setResData] = useState([]);
   const [currentFeature, setCurrentFeature] = useState('chat');
+  const [userInfo, setUserInfo] = useState({...user});
+
 
   useEffect(() => {
     fetchRestaurants("Vancouver", "Burgers", setResData);
-    // updateUser()
   }, []);
 
   const toggleFeature = (feature) => {
@@ -84,7 +74,7 @@ export default function App() {
   //edit from channelcontainer will be set in channellist after the edit but isEditing and createType only available in channel container
   return (
     <div className="app__wrapper">
-      <SideBar client={client} userID={userID} setCurrentFeature={setCurrentFeature} currentFeature={currentFeature} toggleFeature={toggleFeature} logout={logout} />
+      <SideBar client={client} userInfo={userInfo} setUserInfo={setUserInfo} setCurrentFeature={setCurrentFeature} currentFeature={currentFeature} toggleFeature={toggleFeature} logout={logout} />
       {currentFeature === 'restuarant-search' && <ResturantData resData={resData} setResData={setResData} fetchRestaurants={fetchRestaurants} />}
       {currentFeature === 'match-game' && <MatchGame />}
       {currentFeature === 'profile' && <Profile />}

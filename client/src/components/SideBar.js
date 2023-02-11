@@ -1,5 +1,7 @@
 import { Button, Header, Image, Modal } from 'semantic-ui-react';
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import Cookies from 'universal-cookie';
+
 // Side Bar icons
 import logoIcon from '../assets/3.png';
 import LogoutIcon from '../assets/Logout.png';
@@ -7,28 +9,36 @@ import restaurantIcon from '../assets/restaurantIcon.png';
 import matchIcon from '../assets/matchgameicon.png';
 import profileIcon from '../assets/2.png';
 
-import { Avatar, useChatContext, useChannelStateContext } from 'stream-chat-react';
+import { Form } from 'semantic-ui-react';
 
-const updateUser = async (userID, fullName, URL, client) =>{
+const updateUser = async (userID, fullName, URL, client) => {
   const update = {
-    id: userID, 
-    set: { 
-      fullName: fullName, 
-      image: URL, 
-    },  
-  } 
-  await client.partialUpdateUser(update)
-}
+    id: userID,
+    set: {
+      fullName: fullName,
+      image: URL,
+    },
+  };
+  await client.partialUpdateUser(update);
+};
 
-export default function SideBar ({ logout, setCurrentFeature, client, userID }) {
-  // const { channel, watcher_count } = useChannelStateContext();
+const cookies = new Cookies();
+
+export default function SideBar({ logout, setCurrentFeature, client, userInfo, setUserInfo }) {
+  console.log(userInfo)
+  const initialState = {
+    fullName: userInfo.fullName,
+    image: userInfo.image
+  };
+  const [form, setForm] = useState(initialState);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+    console.log(form);
+  };
 
 
-  useEffect(() => {
-    updateUser(userID, "Jackie Chan", "https://iili.io/HEE3OV2.jpg", client)
-  }, [])
-
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleRestaurantClick = (e) => {
     e.preventDefault();
@@ -44,13 +54,19 @@ export default function SideBar ({ logout, setCurrentFeature, client, userID }) 
     setCurrentFeature('match-game');
   };
 
-  const handleProfileClick = (e) => {
+  const handleProfileSubmit = async (e) => {
     e.preventDefault();
-    setCurrentFeature('profile');
-  };
 
-  // const member = Object.values(channel.state.members).filter(({ user }) => user.id === client.userID);
-  console.log(client)
+    const { fullName, image } = form;
+   
+    await updateUser(userInfo.id, fullName, image, client); 
+    await cookies.set('fullName', fullName);
+    await cookies.set('avatarURL', image);
+    await setUserInfo({ ...userInfo, fullName: fullName, image: image })
+    console.log('UPDATING USER', userInfo)
+    setOpen(false);
+    ;
+  };
   return (
     <div className="channel-list__sidebar">
       <div className="channel-list__sidebar__icon1">
@@ -82,8 +98,7 @@ export default function SideBar ({ logout, setCurrentFeature, client, userID }) 
         }>
         <Modal.Header>Select a Photo</Modal.Header>
         <Modal.Content image>
-          <Avatar />
-          <Image size='medium' src='https://react.semantic-ui.com/images/avatar/large/rachel.png' wrapped />
+          <Image size='medium' src={userInfo.image} wrapped />
           <Modal.Description>
             <Header>Default Profile Image</Header>
             <p>
@@ -91,19 +106,31 @@ export default function SideBar ({ logout, setCurrentFeature, client, userID }) 
               address.
             </p>
             <p>Is it okay to use this photo?</p>
+            Full Name: {userInfo.fullName}
+            <Form>
+              <Form.Field>
+                <label>Update Full Name</label>
+                <input name="fullName" type="text" placeholder="Full Name" onChange={handleChange} />
+                <label>Update Avatar</label>
+                <input name="image" type="text" placeholder="Avatar URL (direct link)" onChange={handleChange} />
+                <Button color='black' onClick={() => setOpen(false)}>
+                  Cancel
+                </Button>
+                <Button
+                  content="Update Profile"
+                  labelPosition='right'
+                  icon='checkmark'
+                  onClick={handleProfileSubmit}
+                  positive
+                />
+              </Form.Field>
+
+            </Form>
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>
-          <Button color='black' onClick={() => setOpen(false)}>
-            Nope
-          </Button>
-          <Button
-            content="Yep, that's me"
-            labelPosition='right'
-            icon='checkmark'
-            onClick={() => setOpen(false)}
-            positive
-          />
+
+
         </Modal.Actions>
       </Modal>
 
